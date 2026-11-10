@@ -1,0 +1,531 @@
+# Russian translation of CoinsPay for WooCommerce.
+# This file is distributed under the same license as the plugin: GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CoinsPay for WooCommerce\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Domain: coinspay-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: coinspay-for-woocommerce.php
+msgid "CoinsPay for WooCommerce"
+msgstr "CoinsPay для WooCommerce"
+
+#. Description of the plugin
+#: coinspay-for-woocommerce.php
+msgid "Accept cryptocurrency in WooCommerce with CoinsPay: the buyer picks a coin and a network on the CoinsPay payment page, and the order is marked paid on its own."
+msgstr "Приём криптовалюты в WooCommerce через CoinsPay: покупатель выбирает монету и сеть на странице оплаты CoinsPay, а заказ сам отмечается оплаченным."
+
+#. Author of the plugin
+#: coinspay-for-woocommerce.php
+#: src/Admin/OrderPanel.php:36
+#: src/Gateway.php:27
+msgid "CoinsPay"
+msgstr "CoinsPay"
+
+#: src/Admin/ConnectionCheck.php:51
+msgid "Checking…"
+msgstr "Проверяем…"
+
+#: src/Admin/ConnectionCheck.php:52
+msgid "The check failed: the site did not answer."
+msgstr "Проверка не удалась: сайт не ответил."
+
+#: src/Admin/ConnectionCheck.php:53
+msgid "Copied"
+msgstr "Скопировано"
+
+#: src/Admin/ConnectionCheck.php:64
+msgid "Not allowed."
+msgstr "Нет прав."
+
+#: src/Admin/ConnectionCheck.php:70
+msgid "Enter the API key first."
+msgstr "Сначала укажите ключ API."
+
+#. translators: 1: CoinsPay shop name, 2: "test mode" or "live mode"
+#: src/Admin/ConnectionCheck.php:94
+#, php-format
+msgid "Connected to the shop \"%1$s\", %2$s."
+msgstr "Подключено к магазину «%1$s», %2$s."
+
+#: src/Admin/ConnectionCheck.php:96
+msgid "test mode"
+msgstr "тестовый режим"
+
+#: src/Admin/ConnectionCheck.php:96
+msgid "live mode"
+msgstr "боевой режим"
+
+#. translators: %s: currency code
+#: src/Admin/ConnectionCheck.php:100
+#, php-format
+msgid "Prices in %s are accepted."
+msgstr "Цены в %s принимаются."
+
+#. translators: %s: currency code
+#: src/Admin/ConnectionCheck.php:102
+#, php-format
+msgid "Prices in %s are not accepted by CoinsPay: the payment method will be hidden at checkout."
+msgstr "CoinsPay не принимает цены в %s: способ оплаты будет скрыт при оформлении заказа."
+
+#: src/Admin/ConnectionCheck.php:107
+msgid "This key has full access, payouts included, while the plugin needs invoices only. Issue an \"Invoices only\" key in the CoinsPay dashboard, put it here and revoke this one."
+msgstr "У этого ключа полный доступ, включая выплаты, а плагину нужны только счета. Выпустите в кабинете CoinsPay ключ «Только счета», вставьте его сюда, а этот отзовите."
+
+#: src/Admin/ConnectionCheck.php:125
+msgid "CoinsPay does not know this key. Copy it from the dashboard again: the full key is shown only once, when it is issued."
+msgstr "CoinsPay не знает этот ключ. Скопируйте его из кабинета ещё раз: целиком ключ показывается только один раз, при выпуске."
+
+#. translators: %s: IP address
+#: src/Admin/ConnectionCheck.php:130
+#, php-format
+msgid "The key has an IP allowlist without this server. Add %s to the key in the dashboard."
+msgstr "У ключа есть белый список IP, и этого сервера в нём нет. Добавьте %s к ключу в кабинете."
+
+#: src/Admin/ConnectionCheck.php:134
+msgid "The shop is blocked in CoinsPay."
+msgstr "Магазин заблокирован в CoinsPay."
+
+#. translators: %s: error from the HTTP library
+#: src/Admin/ConnectionCheck.php:137
+#, php-format
+msgid "No answer from the API address: %s"
+msgstr "Адрес API не отвечает: %s"
+
+#. translators: 1: HTTP status, 2: error code
+#: src/Admin/ConnectionCheck.php:140
+#, php-format
+msgid "CoinsPay answered with an error: HTTP %1$d, %2$s. Check the API address: it ends with /api/v1."
+msgstr "CoinsPay ответил ошибкой: HTTP %1$d, %2$s. Проверьте адрес API: он заканчивается на /api/v1."
+
+#: src/Admin/OrderPanel.php:52
+msgid "No CoinsPay invoice for this order."
+msgstr "У этого заказа нет счёта CoinsPay."
+
+#: src/Admin/OrderPanel.php:57
+msgid "open"
+msgstr "открыт"
+
+#: src/Admin/OrderPanel.php:58
+msgid "paid"
+msgstr "оплачен"
+
+#: src/Admin/OrderPanel.php:59
+msgid "expired"
+msgstr "истёк"
+
+#: src/Admin/OrderPanel.php:60
+msgid "cancelled"
+msgstr "отменён"
+
+#. translators: %s: invoice number
+#: src/Admin/OrderPanel.php:69
+#, php-format
+msgid "Invoice No. %s"
+msgstr "Счёт № %s"
+
+#: src/Admin/OrderPanel.php:72
+msgid "test"
+msgstr "тест"
+
+#. translators: %s: amount with currency
+#: src/Admin/OrderPanel.php:78
+#, php-format
+msgid "Amount: %s"
+msgstr "Сумма: %s"
+
+#. translators: %s: amount with currency
+#: src/Admin/OrderPanel.php:80
+#, php-format
+msgid "Paid: %s"
+msgstr "Оплачено: %s"
+
+#. translators: %s: amount with currency
+#: src/Admin/OrderPanel.php:83
+#, php-format
+msgid "On its way: %s"
+msgstr "В пути: %s"
+
+#. translators: %s: amount with currency
+#: src/Admin/OrderPanel.php:87
+#, php-format
+msgid "Overpaid: %s"
+msgstr "Переплата: %s"
+
+#: src/Admin/OrderPanel.php:104
+msgid "Payment page"
+msgstr "Страница оплаты"
+
+#: src/Admin/OrderPanel.php:106
+msgid "The order follows the invoice on its own. To fetch it right now, choose \"Refresh from CoinsPay\" in the order actions."
+msgstr "Заказ сам следует за счётом. Чтобы проверить счёт прямо сейчас, выберите «Обновить из CoinsPay» в действиях с заказом."
+
+#: src/Admin/OrderPanel.php:122
+msgid "Refresh from CoinsPay"
+msgstr "Обновить из CoinsPay"
+
+#: src/Blocks/PaymentMethod.php:70
+#: src/Gateway.php:54
+msgid "Cryptocurrency"
+msgstr "Криптовалюта"
+
+#: src/Checkout.php:144
+msgid "Your payment has arrived and is waiting for network confirmations. The order will update on its own."
+msgstr "Платёж поступил и ждёт подтверждений сети. Заказ обновится сам."
+
+#: src/Checkout.php:146
+msgid "The order is partially paid. Pay the rest on the payment page."
+msgstr "Заказ оплачен частично. Доплатите остаток на странице оплаты."
+
+#: src/Checkout.php:149
+msgid "The order is waiting for payment."
+msgstr "Заказ ждёт оплаты."
+
+#: src/Checkout.php:152
+msgid "The time to pay for this order has run out. Please place the order again."
+msgstr "Время на оплату заказа истекло. Оформите заказ заново."
+
+#: src/Checkout.php:163
+msgid "Go to the payment page"
+msgstr "Перейти к оплате"
+
+#: src/Gateway.php:28
+msgid "Crypto payments with CoinsPay. The buyer picks a coin and a network on the CoinsPay payment page; the order is marked paid on its own."
+msgstr "Оплата криптовалютой через CoinsPay. Покупатель выбирает монету и сеть на странице оплаты CoinsPay, заказ сам отмечается оплаченным."
+
+#: src/Gateway.php:45
+msgid "Enable"
+msgstr "Включить"
+
+#: src/Gateway.php:47
+msgid "Accept crypto payments with CoinsPay"
+msgstr "Принимать оплату криптовалютой через CoinsPay"
+
+#: src/Gateway.php:51
+msgid "Title"
+msgstr "Название"
+
+#: src/Gateway.php:53
+msgid "The payment method name the buyer sees at checkout."
+msgstr "Название способа оплаты, которое покупатель видит при оформлении заказа."
+
+#: src/Gateway.php:58
+msgid "Description"
+msgstr "Описание"
+
+#: src/Gateway.php:60
+msgid "Shown under the payment method at checkout."
+msgstr "Показывается под способом оплаты при оформлении заказа."
+
+#: src/Gateway.php:61
+msgid "Pay with USDT, BTC, ETH and other coins. You will choose the coin and the network on the next page."
+msgstr "Оплата в USDT, BTC, ETH и других монетах. Монету и сеть вы выберете на следующей странице."
+
+#: src/Gateway.php:65
+msgid "Connection"
+msgstr "Подключение"
+
+#: src/Gateway.php:67
+msgid "In the CoinsPay dashboard open your shop: issue an API key under \"API keys\", then under \"Webhook\" enter the address below and copy the secret."
+msgstr "В кабинете CoinsPay откройте магазин: в разделе «Ключи API» выпустите ключ, затем в разделе «Вебхук» укажите адрес ниже и скопируйте секрет."
+
+#: src/Gateway.php:70
+msgid "API address"
+msgstr "Адрес API"
+
+#: src/Gateway.php:72
+msgid "Leave empty to use https://coinspay.app/api/v1. Change it only if CoinsPay gives you another address."
+msgstr "Оставьте пустым, чтобы использовать https://coinspay.app/api/v1. Меняйте, только если CoinsPay даст вам другой адрес."
+
+#: src/Gateway.php:77
+msgid "API key"
+msgstr "Ключ API"
+
+#: src/Gateway.php:79
+msgid "cpk_… for real payments, cpk_test_… for test mode: test invoices are paid with a button on the payment page, without coins."
+msgstr "cpk_… — для настоящих платежей, cpk_test_… — для тестового режима: тестовый счёт оплачивается кнопкой на странице оплаты, без монет."
+
+#: src/Gateway.php:83
+msgid "Webhook address"
+msgstr "Адрес вебхука"
+
+#: src/Gateway.php:87
+msgid "Webhook secret"
+msgstr "Секрет вебхука"
+
+#: src/Gateway.php:89
+msgid "The whsec_… secret the dashboard shows when you save the webhook."
+msgstr "Секрет whsec_…, который кабинет показывает при сохранении вебхука."
+
+#: src/Gateway.php:93
+msgid "Check"
+msgstr "Проверка"
+
+#: src/Gateway.php:97
+msgid "Invoice"
+msgstr "Счёт"
+
+#: src/Gateway.php:101
+msgid "Time to pay, minutes"
+msgstr "Время на оплату, минут"
+
+#. translators: 1: minimum minutes, 2: maximum minutes
+#: src/Gateway.php:106
+#, php-format
+msgid "From %1$d to %2$d minutes. The order stays pending meanwhile and is not cancelled by the \"Hold stock\" setting of WooCommerce."
+msgstr "От %1$d до %2$d минут. Всё это время заказ ждёт оплаты, и настройка WooCommerce «Удерживать запас» его не отменяет."
+
+#: src/Gateway.php:117
+msgid "Expired invoice"
+msgstr "Истёкший счёт"
+
+#: src/Gateway.php:119
+msgid "Cancel the order when its invoice expires unpaid"
+msgstr "Отменять заказ, когда его счёт истёк без оплаты"
+
+#: src/Gateway.php:123
+msgid "Return to the shop"
+msgstr "Возврат в магазин"
+
+#: src/Gateway.php:125
+msgid "Take the buyer back to the shop automatically after payment"
+msgstr "Возвращать покупателя в магазин автоматически после оплаты"
+
+#: src/Gateway.php:126
+msgid "Five seconds after the payment page shows \"Paid\". Otherwise the buyer comes back with the \"Back to the shop\" button."
+msgstr "Через пять секунд после «Оплачено» на странице оплаты. Иначе покупатель вернётся кнопкой «Вернуться в магазин»."
+
+#: src/Gateway.php:130
+msgid "Coins"
+msgstr "Монеты"
+
+#: src/Gateway.php:132
+msgid "Accept stablecoins only (USDT and USDC)"
+msgstr "Принимать только стейблкоины (USDT и USDC)"
+
+#: src/Gateway.php:136
+msgid "Fees"
+msgstr "Комиссии"
+
+#: src/Gateway.php:138
+msgid "The buyer pays the CoinsPay fee"
+msgstr "Комиссию CoinsPay платит покупатель"
+
+#: src/Gateway.php:139
+msgid "Added to the amount in coins on the payment page; the order total stays the same."
+msgstr "Прибавляется к сумме в монетах на странице оплаты; сумма заказа не меняется."
+
+#: src/Gateway.php:144
+msgid "The buyer pays the network fee of your payout"
+msgstr "Комиссию сети за вашу выплату платит покупатель"
+
+#: src/Gateway.php:148
+msgid "Advanced"
+msgstr "Дополнительно"
+
+#: src/Gateway.php:152
+msgid "Test mode"
+msgstr "Тестовый режим"
+
+#: src/Gateway.php:154
+msgid "With a test key, show the payment method to shop managers only"
+msgstr "С тестовым ключом показывать способ оплаты только менеджерам магазина"
+
+#: src/Gateway.php:155
+msgid "A test payment completes only orders placed by a shop manager; other orders paid this way stay on hold."
+msgstr "Тестовая оплата отмечает оплаченными только заказы менеджеров магазина; остальные заказы, оплаченные так, остаются на удержании."
+
+#: src/Gateway.php:159
+msgid "Debug log"
+msgstr "Журнал отладки"
+
+#: src/Gateway.php:161
+msgid "Log what the plugin does"
+msgstr "Записывать, что делает плагин"
+
+#: src/Gateway.php:162
+msgid "WooCommerce → Status → Logs, source \"coinspay\". Errors are logged always; keys and secrets never."
+msgstr "WooCommerce → Статус → Журналы, источник «coinspay». Ошибки записываются всегда, ключи и секреты — никогда."
+
+#: src/Gateway.php:227
+msgid "The API address must start with https:// (or http:// for a local test)."
+msgstr "Адрес API должен начинаться с https:// (или http:// для локальной проверки)."
+
+#: src/Gateway.php:244
+msgid "This does not look like a CoinsPay API key: it starts with cpk_ or cpk_test_."
+msgstr "Это не похоже на ключ API CoinsPay: он начинается с cpk_ или cpk_test_."
+
+#: src/Gateway.php:261
+msgid "The webhook secret starts with whsec_."
+msgstr "Секрет вебхука начинается с whsec_."
+
+#. translators: %s: date and time
+#: src/Gateway.php:290
+#, php-format
+msgid "Last test event from the dashboard: %s."
+msgstr "Последнее тестовое событие из кабинета: %s."
+
+#: src/Gateway.php:293
+msgid "Enter this address in the dashboard, then press \"Send test event\" there: the time it arrived will show here."
+msgstr "Укажите этот адрес в кабинете и нажмите там «Отправить тестовое событие»: время, когда оно дошло, появится здесь."
+
+#: src/Gateway.php:301
+msgid "Copy"
+msgstr "Копировать"
+
+#: src/Gateway.php:322
+msgid "Check connection"
+msgstr "Проверить подключение"
+
+#: src/Gateway.php:323
+msgid "Uses the address and key entered above, saved or not."
+msgstr "Проверяются адрес и ключ, введённые выше, даже если они ещё не сохранены."
+
+#: src/Gateway.php:359
+msgid "Test mode: the key is a test one (cpk_test_). Invoices are paid with a button on the payment page, no coins move. Orders paid this way are marked \"[Test]\" in their notes."
+msgstr "Тестовый режим: ключ тестовый (cpk_test_). Счета оплачиваются кнопкой на странице оплаты, монеты не переводятся. У заказов, оплаченных так, в заметках стоит «[Тест]»."
+
+#. translators: %s: CoinsPay invoice number
+#: src/OrderSync.php:84
+#, php-format
+msgid "CoinsPay invoice No. %s of this order is paid as well, although the order was already paid. Refund the buyer from the CoinsPay dashboard if needed."
+msgstr "Счёт CoinsPay № %s этого заказа тоже оплачен, хотя заказ уже был оплачен. При необходимости верните деньги покупателю из кабинета CoinsPay."
+
+#. translators: %s: CoinsPay invoice number
+#: src/OrderSync.php:99
+#, php-format
+msgid "CoinsPay invoice No. %s is paid, but the order was cancelled in the store. Check the price and the stock, then ship the order or refund the buyer from the CoinsPay dashboard."
+msgstr "Счёт CoinsPay № %s оплачен, но заказ был отменён в магазине. Проверьте цену и остаток на складе, затем отправьте заказ или верните деньги покупателю из кабинета CoinsPay."
+
+#: src/OrderSync.php:111
+msgid "This is a test payment: no money was received. The order was not placed by a shop manager, so it stays on hold. If the store takes real orders, replace the test API key with a live one."
+msgstr "Это тестовая оплата: деньги не поступали. Заказ оформил не менеджер магазина, поэтому он остаётся на удержании. Если магазин принимает настоящие заказы, замените тестовый ключ API на боевой."
+
+#. translators: 1: invoice number, 2: invoice amount with currency, 3: order amount with currency
+#: src/OrderSync.php:123
+#, php-format
+msgid "CoinsPay invoice No. %1$s is paid, but its amount %2$s differs from the order (%3$s). Check the order before shipping."
+msgstr "Счёт CoinsPay № %1$s оплачен, но его сумма %2$s не совпадает с заказом (%3$s). Проверьте заказ перед отправкой."
+
+#. translators: 1: invoice number, 2: payments, e.g. "12.5 USDT, TRON"
+#: src/OrderSync.php:134
+#, php-format
+msgid "Paid with CoinsPay, invoice No. %1$s: %2$s."
+msgstr "Оплачено через CoinsPay, счёт № %1$s: %2$s."
+
+#: src/OrderSync.php:139
+msgid "The invoice was marked as paid manually in the CoinsPay dashboard."
+msgstr "Счёт отмечен оплаченным вручную в кабинете CoinsPay."
+
+#: src/OrderSync.php:142
+msgid "The payment came after the invoice expired."
+msgstr "Платёж пришёл после истечения счёта."
+
+#. translators: %s: overpaid amount with currency
+#: src/OrderSync.php:147
+#, php-format
+msgid "Overpaid by %s."
+msgstr "Переплата: %s."
+
+#. translators: 1: invoice number, 2: paid amount, 3: payments, e.g. "12.5 USDT, TRON"
+#: src/OrderSync.php:165
+#, php-format
+msgid "CoinsPay invoice No. %1$s: %2$s received, the rest is on its way and waits for network confirmations (%3$s)."
+msgstr "Счёт CoinsPay № %1$s: получено %2$s, остаток в пути и ждёт подтверждений сети (%3$s)."
+
+#. translators: 1: invoice number, 2: paid amount, 3: amount left to pay
+#: src/OrderSync.php:178
+#, php-format
+msgid "CoinsPay invoice No. %1$s is partially paid: %2$s received, %3$s left. The buyer can pay the rest on the same payment page."
+msgstr "Счёт CoinsPay № %1$s оплачен частично: получено %2$s, осталось %3$s. Покупатель может доплатить на той же странице оплаты."
+
+#. translators: 1: invoice number, 2: payments, e.g. "12.5 USDT, TRON"
+#: src/OrderSync.php:191
+#, php-format
+msgid "CoinsPay invoice No. %1$s: the payment is on its way and waits for network confirmations (%2$s)."
+msgstr "Счёт CoinsPay № %1$s: платёж в пути и ждёт подтверждений сети (%2$s)."
+
+#. translators: 1: invoice number, 2: paid amount, 3: invoice amount
+#: src/OrderSync.php:205
+#, php-format
+msgid "CoinsPay invoice No. %1$s expired partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard."
+msgstr "Счёт CoinsPay № %1$s истёк, оплачен частично: %2$s из %3$s. Решите, отправлять заказ или вернуть деньги покупателю из кабинета CoinsPay."
+
+#. translators: 1: invoice number, 2: paid amount, 3: invoice amount
+#: src/OrderSync.php:208
+#, php-format
+msgid "CoinsPay invoice No. %1$s was cancelled partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard."
+msgstr "Счёт CoinsPay № %1$s отменён, оплачен частично: %2$s из %3$s. Решите, отправлять заказ или вернуть деньги покупателю из кабинета CoinsPay."
+
+#. translators: %s: invoice number
+#: src/OrderSync.php:229
+#, php-format
+msgid "CoinsPay invoice No. %s was cancelled in the CoinsPay dashboard."
+msgstr "Счёт CoinsPay № %s отменён в кабинете CoinsPay."
+
+#. translators: %s: invoice number
+#: src/OrderSync.php:237
+#, php-format
+msgid "CoinsPay invoice No. %s expired unpaid."
+msgstr "Счёт CoinsPay № %s истёк без оплаты."
+
+#. translators: %s: invoice number
+#: src/OrderSync.php:244
+#, php-format
+msgid "CoinsPay invoice No. %s expired unpaid. The buyer can pay again from the order page: a new invoice will be created."
+msgstr "Счёт CoinsPay № %s истёк без оплаты. Покупатель может оплатить заново со страницы заказа: будет выставлен новый счёт."
+
+#: src/OrderSync.php:331
+msgid "The order uses another payment method now, so its status is left as it is."
+msgstr "Теперь у заказа другой способ оплаты, поэтому его статус не меняется."
+
+#: src/OrderSync.php:338
+msgid "[Test]"
+msgstr "[Тест]"
+
+#: src/OrderSync.php:521
+msgid "no payment details"
+msgstr "без подробностей платежа"
+
+#. translators: 1: invoice number, 2: amount with currency
+#: src/Payment.php:60
+#, php-format
+msgid "CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment."
+msgstr "Выставлен счёт CoinsPay № %1$s на %2$s. Ждём оплату."
+
+#. translators: 1: invoice number, 2: amount with currency
+#: src/Payment.php:63
+#, php-format
+msgid "[Test] CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment."
+msgstr "[Тест] Выставлен счёт CoinsPay № %1$s на %2$s. Ждём оплату."
+
+#: src/Payment.php:108
+msgid "Crypto payment is not available for this currency. Please choose another payment method."
+msgstr "Оплата криптовалютой недоступна для этой валюты. Выберите другой способ оплаты."
+
+#: src/Payment.php:112
+msgid "The crypto payment service is not answering right now. Please try again in a minute."
+msgstr "Сервис оплаты криптовалютой сейчас не отвечает. Попробуйте ещё раз через минуту."
+
+#: src/Payment.php:114
+msgid "The crypto payment could not be started. Please try again or choose another payment method."
+msgstr "Не удалось начать оплату криптовалютой. Попробуйте ещё раз или выберите другой способ оплаты."
+
+#: src/Plugin.php:102
+msgid "Settings"
+msgstr "Настройки"
+
+#. translators: %s: minimal WooCommerce version, e.g. 3.0
+#: src/Plugin.php:129
+#, php-format
+msgid "CoinsPay for WooCommerce needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments."
+msgstr "Для CoinsPay для WooCommerce нужен WooCommerce %s или новее. Установите или обновите WooCommerce, чтобы принимать криптовалюту."
+
+#: src/Poller.php:62
+msgid "Every 15 minutes (CoinsPay)"
+msgstr "Каждые 15 минут (CoinsPay)"

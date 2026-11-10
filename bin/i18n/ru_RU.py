@@ -1,0 +1,149 @@
+# Russian translation of the plugin: msgid -> msgstr. bin/i18n/build-po.py
+# turns it into languages/coinspay-for-woocommerce-ru_RU.po from the .pot.
+RU = {
+    "CoinsPay for WooCommerce": "CoinsPay для WooCommerce",
+    "Accept cryptocurrency in WooCommerce with CoinsPay: the buyer picks a coin and a network on the CoinsPay payment page, and the order is marked paid on its own.":
+        "Приём криптовалюты в WooCommerce через CoinsPay: покупатель выбирает монету и сеть на странице оплаты CoinsPay, а заказ сам отмечается оплаченным.",
+    "CoinsPay": "CoinsPay",
+    "Checking…": "Проверяем…",
+    "The check failed: the site did not answer.": "Проверка не удалась: сайт не ответил.",
+    "Copied": "Скопировано",
+    "Not allowed.": "Нет прав.",
+    "Enter the API key first.": "Сначала укажите ключ API.",
+    "Connected to the shop \"%1$s\", %2$s.": "Подключено к магазину «%1$s», %2$s.",
+    "test mode": "тестовый режим",
+    "live mode": "боевой режим",
+    "Prices in %s are accepted.": "Цены в %s принимаются.",
+    "Prices in %s are not accepted by CoinsPay: the payment method will be hidden at checkout.":
+        "CoinsPay не принимает цены в %s: способ оплаты будет скрыт при оформлении заказа.",
+    "This key has full access, payouts included, while the plugin needs invoices only. Issue an \"Invoices only\" key in the CoinsPay dashboard, put it here and revoke this one.":
+        "У этого ключа полный доступ, включая выплаты, а плагину нужны только счета. Выпустите в кабинете CoinsPay ключ «Только счета», вставьте его сюда, а этот отзовите.",
+    "CoinsPay does not know this key. Copy it from the dashboard again: the full key is shown only once, when it is issued.":
+        "CoinsPay не знает этот ключ. Скопируйте его из кабинета ещё раз: целиком ключ показывается только один раз, при выпуске.",
+    "The key has an IP allowlist without this server. Add %s to the key in the dashboard.":
+        "У ключа есть белый список IP, и этого сервера в нём нет. Добавьте %s к ключу в кабинете.",
+    "The shop is blocked in CoinsPay.": "Магазин заблокирован в CoinsPay.",
+    "No answer from the API address: %s": "Адрес API не отвечает: %s",
+    "CoinsPay answered with an error: HTTP %1$d, %2$s. Check the API address: it ends with /api/v1.":
+        "CoinsPay ответил ошибкой: HTTP %1$d, %2$s. Проверьте адрес API: он заканчивается на /api/v1.",
+    "No CoinsPay invoice for this order.": "У этого заказа нет счёта CoinsPay.",
+    "open": "открыт",
+    "paid": "оплачен",
+    "expired": "истёк",
+    "cancelled": "отменён",
+    "Invoice No. %s": "Счёт № %s",
+    "test": "тест",
+    "Amount: %s": "Сумма: %s",
+    "Paid: %s": "Оплачено: %s",
+    "On its way: %s": "В пути: %s",
+    "Overpaid: %s": "Переплата: %s",
+    "Payment page": "Страница оплаты",
+    "The order follows the invoice on its own. To fetch it right now, choose \"Refresh from CoinsPay\" in the order actions.":
+        "Заказ сам следует за счётом. Чтобы проверить счёт прямо сейчас, выберите «Обновить из CoinsPay» в действиях с заказом.",
+    "Refresh from CoinsPay": "Обновить из CoinsPay",
+    "Cryptocurrency": "Криптовалюта",
+    "Your payment has arrived and is waiting for network confirmations. The order will update on its own.":
+        "Платёж поступил и ждёт подтверждений сети. Заказ обновится сам.",
+    "The order is partially paid. Pay the rest on the payment page.": "Заказ оплачен частично. Доплатите остаток на странице оплаты.",
+    "The order is waiting for payment.": "Заказ ждёт оплаты.",
+    "The time to pay for this order has run out. Please place the order again.": "Время на оплату заказа истекло. Оформите заказ заново.",
+    "Go to the payment page": "Перейти к оплате",
+    "Crypto payments with CoinsPay. The buyer picks a coin and a network on the CoinsPay payment page; the order is marked paid on its own.":
+        "Оплата криптовалютой через CoinsPay. Покупатель выбирает монету и сеть на странице оплаты CoinsPay, заказ сам отмечается оплаченным.",
+    "Enable": "Включить",
+    "Accept crypto payments with CoinsPay": "Принимать оплату криптовалютой через CoinsPay",
+    "Title": "Название",
+    "The payment method name the buyer sees at checkout.": "Название способа оплаты, которое покупатель видит при оформлении заказа.",
+    "Description": "Описание",
+    "Shown under the payment method at checkout.": "Показывается под способом оплаты при оформлении заказа.",
+    "Pay with USDT, BTC, ETH and other coins. You will choose the coin and the network on the next page.":
+        "Оплата в USDT, BTC, ETH и других монетах. Монету и сеть вы выберете на следующей странице.",
+    "Connection": "Подключение",
+    "In the CoinsPay dashboard open your shop: issue an API key under \"API keys\", then under \"Webhook\" enter the address below and copy the secret.":
+        "В кабинете CoinsPay откройте магазин: в разделе «Ключи API» выпустите ключ, затем в разделе «Вебхук» укажите адрес ниже и скопируйте секрет.",
+    "API address": "Адрес API",
+    "Leave empty to use https://coinspay.app/api/v1. Change it only if CoinsPay gives you another address.":
+        "Оставьте пустым, чтобы использовать https://coinspay.app/api/v1. Меняйте, только если CoinsPay даст вам другой адрес.",
+    "API key": "Ключ API",
+    "cpk_… for real payments, cpk_test_… for test mode: test invoices are paid with a button on the payment page, without coins.":
+        "cpk_… — для настоящих платежей, cpk_test_… — для тестового режима: тестовый счёт оплачивается кнопкой на странице оплаты, без монет.",
+    "Webhook address": "Адрес вебхука",
+    "Webhook secret": "Секрет вебхука",
+    "The whsec_… secret the dashboard shows when you save the webhook.": "Секрет whsec_…, который кабинет показывает при сохранении вебхука.",
+    "Check": "Проверка",
+    "Invoice": "Счёт",
+    "Time to pay, minutes": "Время на оплату, минут",
+    "From %1$d to %2$d minutes. The order stays pending meanwhile and is not cancelled by the \"Hold stock\" setting of WooCommerce.":
+        "От %1$d до %2$d минут. Всё это время заказ ждёт оплаты, и настройка WooCommerce «Удерживать запас» его не отменяет.",
+    "Expired invoice": "Истёкший счёт",
+    "Cancel the order when its invoice expires unpaid": "Отменять заказ, когда его счёт истёк без оплаты",
+    "Return to the shop": "Возврат в магазин",
+    "Take the buyer back to the shop automatically after payment": "Возвращать покупателя в магазин автоматически после оплаты",
+    "Five seconds after the payment page shows \"Paid\". Otherwise the buyer comes back with the \"Back to the shop\" button.":
+        "Через пять секунд после «Оплачено» на странице оплаты. Иначе покупатель вернётся кнопкой «Вернуться в магазин».",
+    "Coins": "Монеты",
+    "Accept stablecoins only (USDT and USDC)": "Принимать только стейблкоины (USDT и USDC)",
+    "Fees": "Комиссии",
+    "The buyer pays the CoinsPay fee": "Комиссию CoinsPay платит покупатель",
+    "Added to the amount in coins on the payment page; the order total stays the same.":
+        "Прибавляется к сумме в монетах на странице оплаты; сумма заказа не меняется.",
+    "The buyer pays the network fee of your payout": "Комиссию сети за вашу выплату платит покупатель",
+    "Advanced": "Дополнительно",
+    "Test mode": "Тестовый режим",
+    "With a test key, show the payment method to shop managers only": "С тестовым ключом показывать способ оплаты только менеджерам магазина",
+    "CoinsPay invoice No. %s is paid, but the order was cancelled in the store. Check the price and the stock, then ship the order or refund the buyer from the CoinsPay dashboard.": "Счёт CoinsPay № %s оплачен, но заказ был отменён в магазине. Проверьте цену и остаток на складе, затем отправьте заказ или верните деньги покупателю из кабинета CoinsPay.",
+    "The order uses another payment method now, so its status is left as it is.": "Теперь у заказа другой способ оплаты, поэтому его статус не меняется.",
+    "A test payment completes only orders placed by a shop manager; other orders paid this way stay on hold.": "Тестовая оплата отмечает оплаченными только заказы менеджеров магазина; остальные заказы, оплаченные так, остаются на удержании.",
+    "This is a test payment: no money was received. The order was not placed by a shop manager, so it stays on hold. If the store takes real orders, replace the test API key with a live one.": "Это тестовая оплата: деньги не поступали. Заказ оформил не менеджер магазина, поэтому он остаётся на удержании. Если магазин принимает настоящие заказы, замените тестовый ключ API на боевой.",
+    "Debug log": "Журнал отладки",
+    "Log what the plugin does": "Записывать, что делает плагин",
+    "WooCommerce → Status → Logs, source \"coinspay\". Errors are logged always; keys and secrets never.":
+        "WooCommerce → Статус → Журналы, источник «coinspay». Ошибки записываются всегда, ключи и секреты — никогда.",
+    "The API address must start with https:// (or http:// for a local test).": "Адрес API должен начинаться с https:// (или http:// для локальной проверки).",
+    "This does not look like a CoinsPay API key: it starts with cpk_ or cpk_test_.": "Это не похоже на ключ API CoinsPay: он начинается с cpk_ или cpk_test_.",
+    "The webhook secret starts with whsec_.": "Секрет вебхука начинается с whsec_.",
+    "Last test event from the dashboard: %s.": "Последнее тестовое событие из кабинета: %s.",
+    "Enter this address in the dashboard, then press \"Send test event\" there: the time it arrived will show here.":
+        "Укажите этот адрес в кабинете и нажмите там «Отправить тестовое событие»: время, когда оно дошло, появится здесь.",
+    "Copy": "Копировать",
+    "Check connection": "Проверить подключение",
+    "Uses the address and key entered above, saved or not.": "Проверяются адрес и ключ, введённые выше, даже если они ещё не сохранены.",
+    "Test mode: the key is a test one (cpk_test_). Invoices are paid with a button on the payment page, no coins move. Orders paid this way are marked \"[Test]\" in their notes.":
+        "Тестовый режим: ключ тестовый (cpk_test_). Счета оплачиваются кнопкой на странице оплаты, монеты не переводятся. У заказов, оплаченных так, в заметках стоит «[Тест]».",
+    "CoinsPay invoice No. %s of this order is paid as well, although the order was already paid. Refund the buyer from the CoinsPay dashboard if needed.":
+        "Счёт CoinsPay № %s этого заказа тоже оплачен, хотя заказ уже был оплачен. При необходимости верните деньги покупателю из кабинета CoinsPay.",
+    "CoinsPay invoice No. %1$s is paid, but its amount %2$s differs from the order (%3$s). Check the order before shipping.":
+        "Счёт CoinsPay № %1$s оплачен, но его сумма %2$s не совпадает с заказом (%3$s). Проверьте заказ перед отправкой.",
+    "Paid with CoinsPay, invoice No. %1$s: %2$s.": "Оплачено через CoinsPay, счёт № %1$s: %2$s.",
+    "The invoice was marked as paid manually in the CoinsPay dashboard.": "Счёт отмечен оплаченным вручную в кабинете CoinsPay.",
+    "The payment came after the invoice expired.": "Платёж пришёл после истечения счёта.",
+    "Overpaid by %s.": "Переплата: %s.",
+    "CoinsPay invoice No. %1$s is partially paid: %2$s received, %3$s left. The buyer can pay the rest on the same payment page.":
+        "Счёт CoinsPay № %1$s оплачен частично: получено %2$s, осталось %3$s. Покупатель может доплатить на той же странице оплаты.",
+    "CoinsPay invoice No. %1$s: %2$s received, the rest is on its way and waits for network confirmations (%3$s).":
+        "Счёт CoinsPay № %1$s: получено %2$s, остаток в пути и ждёт подтверждений сети (%3$s).",
+    "CoinsPay invoice No. %1$s: the payment is on its way and waits for network confirmations (%2$s).":
+        "Счёт CoinsPay № %1$s: платёж в пути и ждёт подтверждений сети (%2$s).",
+    "CoinsPay invoice No. %1$s expired partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard.":
+        "Счёт CoinsPay № %1$s истёк, оплачен частично: %2$s из %3$s. Решите, отправлять заказ или вернуть деньги покупателю из кабинета CoinsPay.",
+    "CoinsPay invoice No. %1$s was cancelled partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard.":
+        "Счёт CoinsPay № %1$s отменён, оплачен частично: %2$s из %3$s. Решите, отправлять заказ или вернуть деньги покупателю из кабинета CoinsPay.",
+    "CoinsPay invoice No. %s was cancelled in the CoinsPay dashboard.": "Счёт CoinsPay № %s отменён в кабинете CoinsPay.",
+    "CoinsPay invoice No. %s expired unpaid.": "Счёт CoinsPay № %s истёк без оплаты.",
+    "CoinsPay invoice No. %s expired unpaid. The buyer can pay again from the order page: a new invoice will be created.":
+        "Счёт CoinsPay № %s истёк без оплаты. Покупатель может оплатить заново со страницы заказа: будет выставлен новый счёт.",
+    "[Test]": "[Тест]",
+    "no payment details": "без подробностей платежа",
+    "CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment.": "Выставлен счёт CoinsPay № %1$s на %2$s. Ждём оплату.",
+    "[Test] CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment.": "[Тест] Выставлен счёт CoinsPay № %1$s на %2$s. Ждём оплату.",
+    "Crypto payment is not available for this currency. Please choose another payment method.":
+        "Оплата криптовалютой недоступна для этой валюты. Выберите другой способ оплаты.",
+    "The crypto payment service is not answering right now. Please try again in a minute.":
+        "Сервис оплаты криптовалютой сейчас не отвечает. Попробуйте ещё раз через минуту.",
+    "The crypto payment could not be started. Please try again or choose another payment method.":
+        "Не удалось начать оплату криптовалютой. Попробуйте ещё раз или выберите другой способ оплаты.",
+    "Settings": "Настройки",
+    "CoinsPay for WooCommerce needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.":
+        "Для CoinsPay для WooCommerce нужен WooCommerce %s или новее. Установите или обновите WooCommerce, чтобы принимать криптовалюту.",
+    "Every 15 minutes (CoinsPay)": "Каждые 15 минут (CoinsPay)",
+}
