@@ -124,4 +124,4 @@ docker run --rm -v "$P:/app" -w /app php:8.5-cli sh -c 'apt-get update -qq >/dev
 
 ## License
 
-GPL-2.0-or-later.
+GPL-2.0-or-later. The full text is in [LICENSE](LICENSE).

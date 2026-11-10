@@ -22,7 +22,7 @@ if ( ! preg_match( '/^Stable tag:\s*(\S+)/m', $readme, $stable ) || $stable[1] !
 	exit( 1 );
 }
 
-$include = array( $slug . '.php', 'uninstall.php', 'readme.txt', 'src', 'assets', 'languages' );
+$include = array( $slug . '.php', 'uninstall.php', 'readme.txt', 'LICENSE', 'src', 'assets', 'languages' );
 $files   = array();
 foreach ( $include as $entry ) {
 	$path = $root . '/' . $entry;
