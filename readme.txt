@@ -78,6 +78,14 @@ Yes, with the "The buyer pays the CoinsPay fee" setting. The fee is added to the
 
 Use a separate CoinsPay shop for staging: a shop has one webhook, and its events would go to one of the two sites only.
 
+== Screenshots ==
+
+1. The "Cryptocurrency" payment method at checkout.
+2. The CoinsPay payment page: the buyer picks a coin.
+3. The amount in coins is fixed for 30 minutes; the buyer pays from a wallet by the QR code or the address.
+4. A paid order: the order notes and the CoinsPay box with the invoice and the transaction.
+5. The plugin settings with the connection check.
+
 == Changelog ==
 
 = 0.1.0 =
