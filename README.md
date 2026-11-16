@@ -7,7 +7,7 @@ Accept cryptocurrency payments in your WooCommerce store. Buyers pay on the Coin
 | | Minimum | Tested up to |
 |---|---|---|
 | WordPress | 4.7 | 7.1 |
-| WooCommerce | 3.0 | 11.2 |
+| WooCommerce | 3.0 | 11.3 |
 | PHP | 7.0 | 8.5 |
 
 You also need a [CoinsPay](https://coinspay.app) account with a shop.
@@ -117,6 +117,10 @@ docker run --rm -v "$P:/app" -w /app --entrypoint php composer:2 bin/build.php
 ```
 
 ## Changelog
+
+### 0.2.1
+
+- Tested with WooCommerce 11.3 and WordPress 7.1.4.
 
 ### 0.2.0
 

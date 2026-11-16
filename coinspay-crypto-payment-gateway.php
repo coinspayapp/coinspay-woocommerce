@@ -2,7 +2,7 @@
 /**
  * Plugin Name:          CoinsPay Crypto Payment Gateway for WooCommerce
  * Description:          Accept cryptocurrency in WooCommerce with CoinsPay: the buyer picks a coin and a network on the CoinsPay payment page, and the order is marked paid on its own.
- * Version:              0.2.0
+ * Version:              0.2.1
  * Requires at least:    4.7
  * Requires PHP:         7.0
  * Requires Plugins:     woocommerce
@@ -11,7 +11,7 @@
  * License URI:          https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:          coinspay-crypto-payment-gateway
  * WC requires at least: 3.0
- * WC tested up to:      11.2
+ * WC tested up to:      11.3
  *
  * @package CoinsPay\WooCommerce
  */
@@ -23,7 +23,7 @@ if ( defined( 'COINSPAY_WC_VERSION' ) ) {
 	return;
 }
 
-define( 'COINSPAY_WC_VERSION', '0.2.0' );
+define( 'COINSPAY_WC_VERSION', '0.2.1' );
 define( 'COINSPAY_WC_FILE', __FILE__ );
 define( 'COINSPAY_WC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'COINSPAY_WC_MIN_WC', '3.0' );

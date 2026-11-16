@@ -5,8 +5,8 @@ Requires at least: 4.7
 Tested up to: 7.1
 Requires PHP: 7.0
 WC requires at least: 3.0
-WC tested up to: 11.2
-Stable tag: 0.2.0
+WC tested up to: 11.3
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Use a separate CoinsPay shop for staging: a shop has one webhook, and its events
 5. The plugin settings with the connection check.
 
 == Changelog ==
+
+= 0.2.1 =
+* Tested with WooCommerce 11.3 and WordPress 7.1.4.
 
 = 0.2.0 =
 * The plugin is renamed to CoinsPay Crypto Payment Gateway for WooCommerce, folder coinspay-crypto-payment-gateway. Translations come from translate.wordpress.org.
