@@ -1,10 +1,10 @@
-"""Builds languages/coinspay-for-woocommerce-ru_RU.po from the .pot and ru_RU.py.
+"""Builds languages/coinspay-crypto-payment-gateway-ru_RU.po from the .pot and ru_RU.py.
 
     python bin/i18n/build-po.py
 
-Then make the binary files with WP-CLI: "wp i18n make-mo" for WordPress before 6.5
-and "wp i18n make-php" for 6.5 and later. Fails on a string of the .pot without
-a translation and on a translation no longer used.
+The plugin does not ship translations: WordPress.org delivers them from
+translate.wordpress.org, and this .po is what gets imported there. Fails on a
+string of the .pot without a translation and on a translation no longer used.
 """
 import io
 import os
@@ -15,8 +15,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from ru_RU import RU  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-POT = os.path.join(ROOT, 'languages', 'coinspay-for-woocommerce.pot')
-PO = os.path.join(ROOT, 'languages', 'coinspay-for-woocommerce-ru_RU.po')
+POT = os.path.join(ROOT, 'languages', 'coinspay-crypto-payment-gateway.pot')
+PO = os.path.join(ROOT, 'languages', 'coinspay-crypto-payment-gateway-ru_RU.po')
 
 QUOTED = re.compile(r'"((?:[^"\\]|\\.)*)"')
 
@@ -33,17 +33,17 @@ blocks = io.open(POT, encoding='utf-8').read().strip().split('\n\n')
 header, entries = blocks[0], blocks[1:]
 
 out = [
-    '# Russian translation of CoinsPay for WooCommerce.',
+    '# Russian translation of CoinsPay Crypto Payment Gateway for WooCommerce.',
     '# This file is distributed under the same license as the plugin: GPL-2.0-or-later.',
     'msgid ""',
     'msgstr ""',
-    '"Project-Id-Version: CoinsPay for WooCommerce\\n"',
+    '"Project-Id-Version: CoinsPay Crypto Payment Gateway for WooCommerce\\n"',
     '"Language: ru_RU\\n"',
     '"MIME-Version: 1.0\\n"',
     '"Content-Type: text/plain; charset=UTF-8\\n"',
     '"Content-Transfer-Encoding: 8bit\\n"',
     '"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\\n"',
-    '"X-Domain: coinspay-for-woocommerce\\n"',
+    '"X-Domain: coinspay-crypto-payment-gateway\\n"',
     '',
 ]
 used = set()

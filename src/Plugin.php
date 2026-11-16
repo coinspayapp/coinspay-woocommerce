@@ -27,8 +27,6 @@ final class Plugin {
 	 * Hooks the plugin in, or explains in the admin why it cannot run.
 	 */
 	public static function boot() {
-		add_action( 'init', array( __CLASS__, 'load_textdomain' ), 1 );
-
 		if ( ! Compat::woocommerce_ready() ) {
 			add_action( 'admin_notices', array( __CLASS__, 'requirements_notice' ) );
 			return;
@@ -43,15 +41,6 @@ final class Plugin {
 		Checkout::register();
 		Admin\OrderPanel::register();
 		Admin\ConnectionCheck::register();
-	}
-
-	/**
-	 * Translations shipped with the plugin. Loaded on init: WordPress 6.7+ warns
-	 * about translations requested earlier.
-	 */
-	public static function load_textdomain() {
-		// The translations ship with the plugin and it is installed from a zip, not from WordPress.org: nothing else loads them.
-		load_plugin_textdomain( 'coinspay-for-woocommerce', false, dirname( plugin_basename( COINSPAY_WC_FILE ) ) . '/languages' ); // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound
 	}
 
 	/**
@@ -99,7 +88,7 @@ final class Plugin {
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( self::settings_url() ),
-				esc_html__( 'Settings', 'coinspay-for-woocommerce' )
+				esc_html__( 'Settings', 'coinspay-crypto-payment-gateway' )
 			)
 		);
 		return $links;
@@ -126,7 +115,7 @@ final class Plugin {
 			esc_html(
 				sprintf(
 					/* translators: %s: minimal WooCommerce version, e.g. 3.0 */
-					__( 'CoinsPay for WooCommerce needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.', 'coinspay-for-woocommerce' ),
+					__( 'CoinsPay Crypto Payment Gateway for WooCommerce needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.', 'coinspay-crypto-payment-gateway' ),
 					COINSPAY_WC_MIN_WC
 				)
 			)

@@ -48,9 +48,9 @@ final class ConnectionCheck {
 				'ajaxUrl'  => admin_url( 'admin-ajax.php' ),
 				'action'   => self::ACTION,
 				'nonce'    => wp_create_nonce( self::ACTION ),
-				'checking' => __( 'Checking…', 'coinspay-for-woocommerce' ),
-				'failed'   => __( 'The check failed: the site did not answer.', 'coinspay-for-woocommerce' ),
-				'copied'   => __( 'Copied', 'coinspay-for-woocommerce' ),
+				'checking' => __( 'Checking…', 'coinspay-crypto-payment-gateway' ),
+				'failed'   => __( 'The check failed: the site did not answer.', 'coinspay-crypto-payment-gateway' ),
+				'copied'   => __( 'Copied', 'coinspay-crypto-payment-gateway' ),
 			)
 		);
 	}
@@ -61,13 +61,13 @@ final class ConnectionCheck {
 	public static function handle() {
 		check_ajax_referer( self::ACTION, 'nonce' );
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Not allowed.', 'coinspay-for-woocommerce' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Not allowed.', 'coinspay-crypto-payment-gateway' ) ), 403 );
 		}
 
 		$url = Settings::api_url_or_default( isset( $_POST['api_url'] ) ? esc_url_raw( wp_unslash( $_POST['api_url'] ) ) : '' );
 		$key = isset( $_POST['api_key'] ) ? sanitize_text_field( wp_unslash( $_POST['api_key'] ) ) : '';
 		if ( '' === $key ) {
-			wp_send_json_error( array( 'message' => __( 'Enter the API key first.', 'coinspay-for-woocommerce' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Enter the API key first.', 'coinspay-crypto-payment-gateway' ) ) );
 		}
 
 		$client = new Client( $url, $key );
@@ -91,20 +91,20 @@ final class ConnectionCheck {
 
 		$message = sprintf(
 			/* translators: 1: CoinsPay shop name, 2: "test mode" or "live mode" */
-			__( 'Connected to the shop "%1$s", %2$s.', 'coinspay-for-woocommerce' ),
+			__( 'Connected to the shop "%1$s", %2$s.', 'coinspay-crypto-payment-gateway' ),
 			isset( $shop['name'] ) ? (string) $shop['name'] : '',
-			Settings::key_is_test( $key ) ? __( 'test mode', 'coinspay-for-woocommerce' ) : __( 'live mode', 'coinspay-for-woocommerce' )
+			Settings::key_is_test( $key ) ? __( 'test mode', 'coinspay-crypto-payment-gateway' ) : __( 'live mode', 'coinspay-crypto-payment-gateway' )
 		);
 		$message .= ' ' . ( $supported
 			/* translators: %s: currency code */
-			? sprintf( __( 'Prices in %s are accepted.', 'coinspay-for-woocommerce' ), $currency )
+			? sprintf( __( 'Prices in %s are accepted.', 'coinspay-crypto-payment-gateway' ), $currency )
 			/* translators: %s: currency code */
-			: sprintf( __( 'Prices in %s are not accepted by CoinsPay: the payment method will be hidden at checkout.', 'coinspay-for-woocommerce' ), $currency ) );
+			: sprintf( __( 'Prices in %s are not accepted by CoinsPay: the payment method will be hidden at checkout.', 'coinspay-crypto-payment-gateway' ), $currency ) );
 
 		// A full-access key can withdraw the shop's money, and every store manager can read it here.
 		$full_access = isset( $answer['key']['access'] ) && 'full' === $answer['key']['access'];
 		if ( $full_access ) {
-			$message .= ' ' . __( 'This key has full access, payouts included, while the plugin needs invoices only. Issue an "Invoices only" key in the CoinsPay dashboard, put it here and revoke this one.', 'coinspay-for-woocommerce' );
+			$message .= ' ' . __( 'This key has full access, payouts included, while the plugin needs invoices only. Issue an "Invoices only" key in the CoinsPay dashboard, put it here and revoke this one.', 'coinspay-crypto-payment-gateway' );
 		}
 
 		if ( $supported && ! $full_access ) {
@@ -122,22 +122,22 @@ final class ConnectionCheck {
 	private static function error_text( ApiError $e ) {
 		switch ( $e->error_code() ) {
 			case 'UNAUTHORIZED':
-				return __( 'CoinsPay does not know this key. Copy it from the dashboard again: the full key is shown only once, when it is issued.', 'coinspay-for-woocommerce' );
+				return __( 'CoinsPay does not know this key. Copy it from the dashboard again: the full key is shown only once, when it is issued.', 'coinspay-crypto-payment-gateway' );
 			case 'IP_NOT_ALLOWED':
 				$details = $e->details();
 				return sprintf(
 					/* translators: %s: IP address */
-					__( 'The key has an IP allowlist without this server. Add %s to the key in the dashboard.', 'coinspay-for-woocommerce' ),
+					__( 'The key has an IP allowlist without this server. Add %s to the key in the dashboard.', 'coinspay-crypto-payment-gateway' ),
 					isset( $details['ip'] ) ? (string) $details['ip'] : '?'
 				);
 			case 'SHOP_DISABLED':
-				return __( 'The shop is blocked in CoinsPay.', 'coinspay-for-woocommerce' );
+				return __( 'The shop is blocked in CoinsPay.', 'coinspay-crypto-payment-gateway' );
 			case 'NETWORK':
 				/* translators: %s: error from the HTTP library */
-				return sprintf( __( 'No answer from the API address: %s', 'coinspay-for-woocommerce' ), $e->getMessage() );
+				return sprintf( __( 'No answer from the API address: %s', 'coinspay-crypto-payment-gateway' ), $e->getMessage() );
 			default:
 				/* translators: 1: HTTP status, 2: error code */
-				return sprintf( __( 'CoinsPay answered with an error: HTTP %1$d, %2$s. Check the API address: it ends with /api/v1.', 'coinspay-for-woocommerce' ), $e->status(), $e->error_code() );
+				return sprintf( __( 'CoinsPay answered with an error: HTTP %1$d, %2$s. Check the API address: it ends with /api/v1.', 'coinspay-crypto-payment-gateway' ), $e->status(), $e->error_code() );
 		}
 	}
 }

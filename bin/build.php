@@ -1,6 +1,6 @@
 <?php
 /**
- * Builds dist/coinspay-for-woocommerce-<version>.zip: the plugin as merchants
+ * Builds dist/coinspay-crypto-payment-gateway-<version>.zip: the plugin as merchants
  * install it, without tests, dev files and Composer packages.
  *
  *   php bin/build.php
@@ -9,7 +9,7 @@
  */
 
 $root = dirname( __DIR__ );
-$slug = 'coinspay-for-woocommerce';
+$slug = 'coinspay-crypto-payment-gateway';
 $main = file_get_contents( $root . '/' . $slug . '.php' );
 if ( ! preg_match( '/^\s*\*\s*Version:\s*(\S+)/m', $main, $match ) ) {
 	fwrite( STDERR, "No Version header in the main file\n" );
@@ -22,7 +22,7 @@ if ( ! preg_match( '/^Stable tag:\s*(\S+)/m', $readme, $stable ) || $stable[1] !
 	exit( 1 );
 }
 
-$include = array( $slug . '.php', 'uninstall.php', 'readme.txt', 'LICENSE', 'src', 'assets', 'languages' );
+$include = array( $slug . '.php', 'uninstall.php', 'readme.txt', 'LICENSE', 'src', 'assets' );
 $files   = array();
 foreach ( $include as $entry ) {
 	$path = $root . '/' . $entry;

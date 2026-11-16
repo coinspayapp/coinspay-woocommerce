@@ -1,4 +1,4 @@
-# CoinsPay for WooCommerce
+# CoinsPay Crypto Payment Gateway for WooCommerce
 
 Accept cryptocurrency payments in your WooCommerce store. Buyers pay on the CoinsPay payment page, and the money goes on to your own wallets.
 
@@ -34,7 +34,7 @@ USD, EUR, GBP, AED, CNY, JPY, RUB, TRY and the other currencies CoinsPay accepts
 - If a payment no longer matches the order total, or arrives for an order the store has cancelled, the order goes on hold with a note for you to review.
 - Webhooks are signed and checked. If one does not arrive, the plugin asks CoinsPay about open invoices every few minutes.
 - Classic checkout and the Cart and Checkout blocks are supported, and so is High-Performance Order Storage.
-- English and Russian translations are included.
+- Strings are in English; translations come from translate.wordpress.org once the plugin is in the WordPress.org directory.
 
 ### Why CoinsPay
 
@@ -44,7 +44,7 @@ The fee is as low as 0.3% of each payout: the rate goes down as the monthly turn
 
 ## Installation
 
-1. Get the plugin archive `coinspay-for-woocommerce-<version>.zip` from the releases of this repository, or build it yourself (see [Building](#building)).
+1. Get the plugin archive `coinspay-crypto-payment-gateway-<version>.zip` from the releases of this repository, or build it yourself (see [Building](#building)).
 2. In WordPress open Plugins → Add New → Upload Plugin, upload the archive and activate the plugin.
 
 ## Configuration
@@ -99,7 +99,7 @@ The code avoids syntax newer than PHP 7.0 and anything deprecated in PHP 8.2 to 
 
 | File | Purpose |
 |---|---|
-| `coinspay-for-woocommerce.php` | Plugin header, autoloader, bootstrap hooks |
+| `coinspay-crypto-payment-gateway.php` | Plugin header, autoloader, bootstrap hooks |
 | `src/Gateway.php` | The payment gateway: settings, availability, `process_payment` |
 | `src/Payment.php`, `src/InvoiceRequest.php` | The invoice for an order and its idempotency key |
 | `src/OrderSync.php` | Invoice state to order state, applied under a MySQL lock |
@@ -110,13 +110,18 @@ The code avoids syntax newer than PHP 7.0 and anything deprecated in PHP 8.2 to 
 
 ### Building
 
-`bin/build.php` writes `dist/coinspay-for-woocommerce-<version>.zip` without tests, development files and Composer. It needs the zip extension:
+`bin/build.php` writes `dist/coinspay-crypto-payment-gateway-<version>.zip` without tests, development files and Composer. It needs the zip extension:
 
 ```bash
-docker run --rm -v "$P:/app" -w /app php:8.5-cli sh -c 'apt-get update -qq >/dev/null && apt-get install -qq -y libzip-dev >/dev/null 2>&1 && docker-php-ext-install zip >/dev/null 2>&1; php bin/build.php'
+docker run --rm -v "$P:/app" -w /app --entrypoint php composer:2 bin/build.php
 ```
 
 ## Changelog
+
+### 0.2.0
+
+- Renamed to CoinsPay Crypto Payment Gateway for WooCommerce for the WordPress.org directory: the plugin folder is now `coinspay-crypto-payment-gateway`. Updating from 0.1.0: deactivate the old plugin and remove its folder `wp-content/plugins/coinspay-for-woocommerce` by hand (Delete in WordPress would also remove the settings), then install this one: the settings stay.
+- The archive no longer bundles translations: WordPress.org delivers them from translate.wordpress.org.
 
 ### 0.1.0
 
@@ -125,3 +130,5 @@ docker run --rm -v "$P:/app" -w /app php:8.5-cli sh -c 'apt-get update -qq >/dev
 ## License
 
 GPL-2.0-or-later. The full text is in [LICENSE](LICENSE).
+
+WooCommerce is a trademark of Automattic Inc. This plugin is made by CoinsPay and is not affiliated with or endorsed by Automattic.

@@ -1,4 +1,4 @@
-=== CoinsPay for WooCommerce ===
+=== CoinsPay Crypto Payment Gateway for WooCommerce ===
 Contributors: coinspay
 Tags: crypto, cryptocurrency, payments, usdt, bitcoin
 Requires at least: 4.7
@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 7.0
 WC requires at least: 3.0
 WC tested up to: 11.2
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Accept USDT, BTC, ETH and other coins in WooCommerce. The buyer pays on the Coin
 
 == Description ==
 
-CoinsPay for WooCommerce adds a "Cryptocurrency" payment method to your store.
+CoinsPay Crypto Payment Gateway for WooCommerce adds a "Cryptocurrency" payment method to your store.
 
 * At checkout the buyer chooses the method and goes to the CoinsPay payment page.
 * There the buyer picks a coin and a network: USDT and USDC on TRON, Ethereum, BNB Smart Chain and Solana, Bitcoin, Litecoin, ETH, BNB, TRX, SOL and more.
@@ -31,9 +31,11 @@ What the plugin handles:
 * Test mode: with a cpk_test_ key, invoices are paid with a button on the payment page, no coins move. Such a payment completes only orders placed by a shop manager.
 * Classic checkout and the Cart and Checkout blocks; High-Performance Order Storage.
 * WooCommerce 3.0 and newer, WordPress 4.7 and newer, PHP 7.0 to 8.5.
-* English and Russian.
+* English; other languages come from translate.wordpress.org.
 
 You need a CoinsPay account and a shop in it.
+
+WooCommerce is a trademark of Automattic Inc. This plugin is made by CoinsPay and is not affiliated with or endorsed by Automattic.
 
 == External services ==
 
@@ -87,6 +89,9 @@ Use a separate CoinsPay shop for staging: a shop has one webhook, and its events
 5. The plugin settings with the connection check.
 
 == Changelog ==
+
+= 0.2.0 =
+* The plugin is renamed to CoinsPay Crypto Payment Gateway for WooCommerce, folder coinspay-crypto-payment-gateway. Translations come from translate.wordpress.org.
 
 = 0.1.0 =
 * First version.

@@ -67,7 +67,7 @@ final class PaymentMethod extends AbstractPaymentMethodType {
 	 */
 	public function get_payment_method_data() {
 		return array(
-			'title'       => Settings::get( 'title', __( 'Cryptocurrency', 'coinspay-for-woocommerce' ) ),
+			'title'       => Settings::get( 'title', __( 'Cryptocurrency', 'coinspay-crypto-payment-gateway' ) ),
 			'description' => Settings::get( 'description' ),
 			'supports'    => array( 'products' ),
 		);

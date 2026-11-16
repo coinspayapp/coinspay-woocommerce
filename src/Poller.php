@@ -59,7 +59,7 @@ final class Poller {
 		// WP-Cron runs on page visits anyway: every 15 minutes is enough for the fallback.
 		$schedules['coinspay_fifteen_minutes'] = array(
 			'interval' => 900,
-			'display'  => __( 'Every 15 minutes (CoinsPay)', 'coinspay-for-woocommerce' ),
+			'display'  => __( 'Every 15 minutes (CoinsPay)', 'coinspay-crypto-payment-gateway' ),
 		);
 		return $schedules;
 	}

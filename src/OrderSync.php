@@ -81,7 +81,7 @@ final class OrderSync {
 						self::NOTE,
 						sprintf(
 							/* translators: %s: CoinsPay invoice number */
-							__( 'CoinsPay invoice No. %s of this order is paid as well, although the order was already paid. Refund the buyer from the CoinsPay dashboard if needed.', 'coinspay-for-woocommerce' ),
+							__( 'CoinsPay invoice No. %s of this order is paid as well, although the order was already paid. Refund the buyer from the CoinsPay dashboard if needed.', 'coinspay-crypto-payment-gateway' ),
 							$number
 						),
 						true
@@ -96,7 +96,7 @@ final class OrderSync {
 					self::ON_HOLD,
 					sprintf(
 						/* translators: %s: CoinsPay invoice number */
-						__( 'CoinsPay invoice No. %s is paid, but the order was cancelled in the store. Check the price and the stock, then ship the order or refund the buyer from the CoinsPay dashboard.', 'coinspay-for-woocommerce' ),
+						__( 'CoinsPay invoice No. %s is paid, but the order was cancelled in the store. Check the price and the stock, then ship the order or refund the buyer from the CoinsPay dashboard.', 'coinspay-crypto-payment-gateway' ),
 						$number
 					),
 					true
@@ -108,7 +108,7 @@ final class OrderSync {
 			if ( ! empty( $invoice['test'] ) && empty( $order['test_allowed'] ) ) {
 				return self::result(
 					self::ON_HOLD,
-					__( 'This is a test payment: no money was received. The order was not placed by a shop manager, so it stays on hold. If the store takes real orders, replace the test API key with a live one.', 'coinspay-for-woocommerce' ),
+					__( 'This is a test payment: no money was received. The order was not placed by a shop manager, so it stays on hold. If the store takes real orders, replace the test API key with a live one.', 'coinspay-crypto-payment-gateway' ),
 					true
 				);
 			}
@@ -120,7 +120,7 @@ final class OrderSync {
 					self::ON_HOLD,
 					sprintf(
 						/* translators: 1: invoice number, 2: invoice amount with currency, 3: order amount with currency */
-						__( 'CoinsPay invoice No. %1$s is paid, but its amount %2$s differs from the order (%3$s). Check the order before shipping.', 'coinspay-for-woocommerce' ),
+						__( 'CoinsPay invoice No. %1$s is paid, but its amount %2$s differs from the order (%3$s). Check the order before shipping.', 'coinspay-crypto-payment-gateway' ),
 						$number,
 						$amount . ' ' . $currency,
 						$order['expected_amount'] . ' ' . strtoupper( (string) $order['currency'] )
@@ -131,20 +131,20 @@ final class OrderSync {
 
 			$note = sprintf(
 				/* translators: 1: invoice number, 2: payments, e.g. "12.5 USDT, TRON" */
-				__( 'Paid with CoinsPay, invoice No. %1$s: %2$s.', 'coinspay-for-woocommerce' ),
+				__( 'Paid with CoinsPay, invoice No. %1$s: %2$s.', 'coinspay-crypto-payment-gateway' ),
 				$number,
 				self::payments_line( $invoice )
 			);
 			if ( ! empty( $invoice['paid_manually'] ) ) {
-				$note .= ' ' . __( 'The invoice was marked as paid manually in the CoinsPay dashboard.', 'coinspay-for-woocommerce' );
+				$note .= ' ' . __( 'The invoice was marked as paid manually in the CoinsPay dashboard.', 'coinspay-crypto-payment-gateway' );
 			}
 			if ( ! empty( $invoice['paid_late'] ) ) {
-				$note .= ' ' . __( 'The payment came after the invoice expired.', 'coinspay-for-woocommerce' );
+				$note .= ' ' . __( 'The payment came after the invoice expired.', 'coinspay-crypto-payment-gateway' );
 			}
 			if ( self::positive( self::value( $invoice, 'amount_overpaid' ) ) ) {
 				$note .= ' ' . sprintf(
 					/* translators: %s: overpaid amount with currency */
-					__( 'Overpaid by %s.', 'coinspay-for-woocommerce' ),
+					__( 'Overpaid by %s.', 'coinspay-crypto-payment-gateway' ),
 					self::money( $invoice, 'amount_overpaid' )
 				);
 			}
@@ -162,7 +162,7 @@ final class OrderSync {
 					self::ON_HOLD,
 					sprintf(
 						/* translators: 1: invoice number, 2: paid amount, 3: payments, e.g. "12.5 USDT, TRON" */
-						__( 'CoinsPay invoice No. %1$s: %2$s received, the rest is on its way and waits for network confirmations (%3$s).', 'coinspay-for-woocommerce' ),
+						__( 'CoinsPay invoice No. %1$s: %2$s received, the rest is on its way and waits for network confirmations (%3$s).', 'coinspay-crypto-payment-gateway' ),
 						$number,
 						self::money( $invoice, 'amount_paid' ),
 						self::payments_line( $invoice )
@@ -175,7 +175,7 @@ final class OrderSync {
 					self::ON_HOLD,
 					sprintf(
 						/* translators: 1: invoice number, 2: paid amount, 3: amount left to pay */
-						__( 'CoinsPay invoice No. %1$s is partially paid: %2$s received, %3$s left. The buyer can pay the rest on the same payment page.', 'coinspay-for-woocommerce' ),
+						__( 'CoinsPay invoice No. %1$s is partially paid: %2$s received, %3$s left. The buyer can pay the rest on the same payment page.', 'coinspay-crypto-payment-gateway' ),
 						$number,
 						self::money( $invoice, 'amount_paid' ),
 						self::money( $invoice, 'amount_due' )
@@ -188,7 +188,7 @@ final class OrderSync {
 					self::ON_HOLD,
 					sprintf(
 						/* translators: 1: invoice number, 2: payments, e.g. "12.5 USDT, TRON" */
-						__( 'CoinsPay invoice No. %1$s: the payment is on its way and waits for network confirmations (%2$s).', 'coinspay-for-woocommerce' ),
+						__( 'CoinsPay invoice No. %1$s: the payment is on its way and waits for network confirmations (%2$s).', 'coinspay-crypto-payment-gateway' ),
 						$number,
 						self::payments_line( $invoice )
 					),
@@ -202,10 +202,10 @@ final class OrderSync {
 			if ( $paid || $pending ) {
 				if ( 'expired' === $status ) {
 					/* translators: 1: invoice number, 2: paid amount, 3: invoice amount */
-					$format = __( 'CoinsPay invoice No. %1$s expired partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard.', 'coinspay-for-woocommerce' );
+					$format = __( 'CoinsPay invoice No. %1$s expired partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard.', 'coinspay-crypto-payment-gateway' );
 				} else {
 					/* translators: 1: invoice number, 2: paid amount, 3: invoice amount */
-					$format = __( 'CoinsPay invoice No. %1$s was cancelled partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard.', 'coinspay-for-woocommerce' );
+					$format = __( 'CoinsPay invoice No. %1$s was cancelled partially paid: %2$s of %3$s. Decide whether to ship or refund the buyer from the CoinsPay dashboard.', 'coinspay-crypto-payment-gateway' );
 				}
 				return self::result(
 					self::ON_HOLD,
@@ -226,7 +226,7 @@ final class OrderSync {
 				return self::result(
 					self::CANCEL,
 					/* translators: %s: invoice number */
-					sprintf( __( 'CoinsPay invoice No. %s was cancelled in the CoinsPay dashboard.', 'coinspay-for-woocommerce' ), $number ),
+					sprintf( __( 'CoinsPay invoice No. %s was cancelled in the CoinsPay dashboard.', 'coinspay-crypto-payment-gateway' ), $number ),
 					true
 				);
 			}
@@ -234,14 +234,14 @@ final class OrderSync {
 				return self::result(
 					self::CANCEL,
 					/* translators: %s: invoice number */
-					sprintf( __( 'CoinsPay invoice No. %s expired unpaid.', 'coinspay-for-woocommerce' ), $number ),
+					sprintf( __( 'CoinsPay invoice No. %s expired unpaid.', 'coinspay-crypto-payment-gateway' ), $number ),
 					true
 				);
 			}
 			return self::result(
 				self::NOTE,
 				/* translators: %s: invoice number */
-				sprintf( __( 'CoinsPay invoice No. %s expired unpaid. The buyer can pay again from the order page: a new invoice will be created.', 'coinspay-for-woocommerce' ), $number ),
+				sprintf( __( 'CoinsPay invoice No. %s expired unpaid. The buyer can pay again from the order page: a new invoice will be created.', 'coinspay-crypto-payment-gateway' ), $number ),
 				true
 			);
 		}
@@ -328,14 +328,14 @@ final class OrderSync {
 		if ( Plugin::GATEWAY_ID !== $order->get_payment_method() && self::NONE !== $action ) {
 			if ( self::positive( self::value( $invoice, 'amount_paid' ) ) || self::positive( self::value( $invoice, 'amount_pending' ) ) ) {
 				$action = self::NOTE;
-				$note  .= ' ' . __( 'The order uses another payment method now, so its status is left as it is.', 'coinspay-for-woocommerce' );
+				$note  .= ' ' . __( 'The order uses another payment method now, so its status is left as it is.', 'coinspay-crypto-payment-gateway' );
 			} else {
 				$action = self::NONE;
 			}
 		}
 
 		if ( ! empty( $invoice['test'] ) && '' !== $note ) {
-			$note = __( '[Test]', 'coinspay-for-woocommerce' ) . ' ' . $note;
+			$note = __( '[Test]', 'coinspay-crypto-payment-gateway' ) . ' ' . $note;
 		}
 
 		switch ( $action ) {
@@ -518,7 +518,7 @@ final class OrderSync {
 				$lines[] = $line;
 			}
 		}
-		return empty( $lines ) ? __( 'no payment details', 'coinspay-for-woocommerce' ) : implode( '; ', $lines );
+		return empty( $lines ) ? __( 'no payment details', 'coinspay-crypto-payment-gateway' ) : implode( '; ', $lines );
 	}
 
 	/**
