@@ -1,6 +1,6 @@
 {
-    "name": "coinspay/coinspay-crypto-payment-gateway",
-    "description": "Accept cryptocurrency in WooCommerce with CoinsPay.",
+    "name": "coinspay/coins-auto-pay",
+    "description": "Accept cryptocurrency in WooCommerce through the CoinsPay service.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "require": {

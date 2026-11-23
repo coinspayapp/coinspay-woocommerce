@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="CoinsPay Crypto Payment Gateway for WooCommerce">
+<ruleset name="Coins Auto Pay">
     <description>WordPress coding standards and PHP 7.0+ compatibility.</description>
 
     <file>.</file>
@@ -24,7 +24,7 @@
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array">
-                <element value="coinspay-crypto-payment-gateway"/>
+                <element value="coins-auto-pay"/>
             </property>
         </properties>
     </rule>

@@ -67,7 +67,7 @@ final class PaymentMethod extends AbstractPaymentMethodType {
 	 */
 	public function get_payment_method_data() {
 		return array(
-			'title'       => Settings::get( 'title', __( 'Cryptocurrency', 'coinspay-crypto-payment-gateway' ) ),
+			'title'       => Settings::get( 'title', __( 'Cryptocurrency', 'coins-auto-pay' ) ),
 			'description' => Settings::get( 'description' ),
 			'supports'    => array( 'products' ),
 		);

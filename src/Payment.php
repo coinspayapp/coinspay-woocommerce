@@ -57,10 +57,10 @@ final class Payment {
 		OrderSync::remember( $order, $invoice, $attempt );
 		if ( empty( $invoice['test'] ) ) {
 			/* translators: 1: invoice number, 2: amount with currency */
-			$format = __( 'CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment.', 'coinspay-crypto-payment-gateway' );
+			$format = __( 'CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment.', 'coins-auto-pay' );
 		} else {
 			/* translators: 1: invoice number, 2: amount with currency */
-			$format = __( '[Test] CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment.', 'coinspay-crypto-payment-gateway' );
+			$format = __( '[Test] CoinsPay invoice No. %1$s created for %2$s. Waiting for the payment.', 'coins-auto-pay' );
 		}
 		$order->add_order_note( sprintf( $format, $invoice['number'], $invoice['amount'] . ' ' . $invoice['currency'] ) );
 		$order->save();
@@ -105,13 +105,13 @@ final class Payment {
 	public static function error_message( ApiError $error ) {
 		switch ( $error->error_code() ) {
 			case 'CURRENCY_NOT_SUPPORTED':
-				return __( 'Crypto payment is not available for this currency. Please choose another payment method.', 'coinspay-crypto-payment-gateway' );
+				return __( 'Crypto payment is not available for this currency. Please choose another payment method.', 'coins-auto-pay' );
 			case 'QUOTE_UNAVAILABLE':
 			case 'NETWORK':
 			case 'RATE_LIMITED':
-				return __( 'The crypto payment service is not answering right now. Please try again in a minute.', 'coinspay-crypto-payment-gateway' );
+				return __( 'The crypto payment service is not answering right now. Please try again in a minute.', 'coins-auto-pay' );
 			default:
-				return __( 'The crypto payment could not be started. Please try again or choose another payment method.', 'coinspay-crypto-payment-gateway' );
+				return __( 'The crypto payment could not be started. Please try again or choose another payment method.', 'coins-auto-pay' );
 		}
 	}
 }

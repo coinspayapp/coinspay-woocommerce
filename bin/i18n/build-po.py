@@ -1,4 +1,4 @@
-"""Builds languages/coinspay-crypto-payment-gateway-ru_RU.po from the .pot and ru_RU.py.
+"""Builds languages/coins-auto-pay-ru_RU.po from the .pot and ru_RU.py.
 
     python bin/i18n/build-po.py
 
@@ -15,8 +15,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from ru_RU import RU  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-POT = os.path.join(ROOT, 'languages', 'coinspay-crypto-payment-gateway.pot')
-PO = os.path.join(ROOT, 'languages', 'coinspay-crypto-payment-gateway-ru_RU.po')
+POT = os.path.join(ROOT, 'languages', 'coins-auto-pay.pot')
+PO = os.path.join(ROOT, 'languages', 'coins-auto-pay-ru_RU.po')
 
 QUOTED = re.compile(r'"((?:[^"\\]|\\.)*)"')
 
@@ -33,17 +33,17 @@ blocks = io.open(POT, encoding='utf-8').read().strip().split('\n\n')
 header, entries = blocks[0], blocks[1:]
 
 out = [
-    '# Russian translation of CoinsPay Crypto Payment Gateway for WooCommerce.',
+    '# Russian translation of Coins Auto Pay – Crypto Payment Gateway for WooCommerce.',
     '# This file is distributed under the same license as the plugin: GPL-2.0-or-later.',
     'msgid ""',
     'msgstr ""',
-    '"Project-Id-Version: CoinsPay Crypto Payment Gateway for WooCommerce\\n"',
+    '"Project-Id-Version: Coins Auto Pay – Crypto Payment Gateway for WooCommerce\\n"',
     '"Language: ru_RU\\n"',
     '"MIME-Version: 1.0\\n"',
     '"Content-Type: text/plain; charset=UTF-8\\n"',
     '"Content-Transfer-Encoding: 8bit\\n"',
     '"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\\n"',
-    '"X-Domain: coinspay-crypto-payment-gateway\\n"',
+    '"X-Domain: coins-auto-pay\\n"',
     '',
 ]
 used = set()

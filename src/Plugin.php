@@ -88,7 +88,7 @@ final class Plugin {
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( self::settings_url() ),
-				esc_html__( 'Settings', 'coinspay-crypto-payment-gateway' )
+				esc_html__( 'Settings', 'coins-auto-pay' )
 			)
 		);
 		return $links;
@@ -115,7 +115,7 @@ final class Plugin {
 			esc_html(
 				sprintf(
 					/* translators: %s: minimal WooCommerce version, e.g. 3.0 */
-					__( 'CoinsPay Crypto Payment Gateway for WooCommerce needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.', 'coinspay-crypto-payment-gateway' ),
+					__( 'Coins Auto Pay needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.', 'coins-auto-pay' ),
 					COINSPAY_WC_MIN_WC
 				)
 			)

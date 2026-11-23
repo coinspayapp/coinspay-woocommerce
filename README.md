@@ -1,6 +1,6 @@
-# CoinsPay Crypto Payment Gateway for WooCommerce
+# Coins Auto Pay – Crypto Payment Gateway for WooCommerce
 
-Accept cryptocurrency payments in your WooCommerce store. Buyers pay on the CoinsPay payment page, and the money goes on to your own wallets.
+Accept cryptocurrency payments in your WooCommerce store through the CoinsPay service. Buyers pay on the CoinsPay payment page, and the money goes on to your own wallets.
 
 ## Requirements
 
@@ -44,7 +44,7 @@ The fee is as low as 0.3% of each payout: the rate goes down as the monthly turn
 
 ## Installation
 
-1. Get the plugin archive `coinspay-crypto-payment-gateway-<version>.zip` from the releases of this repository, or build it yourself (see [Building](#building)).
+1. Get the plugin archive `coins-auto-pay-<version>.zip` from the releases of this repository, or build it yourself (see [Building](#building)).
 2. In WordPress open Plugins → Add New → Upload Plugin, upload the archive and activate the plugin.
 
 ## Configuration
@@ -99,7 +99,7 @@ The code avoids syntax newer than PHP 7.0 and anything deprecated in PHP 8.2 to 
 
 | File | Purpose |
 |---|---|
-| `coinspay-crypto-payment-gateway.php` | Plugin header, autoloader, bootstrap hooks |
+| `coins-auto-pay.php` | Plugin header, autoloader, bootstrap hooks |
 | `src/Gateway.php` | The payment gateway: settings, availability, `process_payment` |
 | `src/Payment.php`, `src/InvoiceRequest.php` | The invoice for an order and its idempotency key |
 | `src/OrderSync.php` | Invoice state to order state, applied under a MySQL lock |
@@ -110,13 +110,17 @@ The code avoids syntax newer than PHP 7.0 and anything deprecated in PHP 8.2 to 
 
 ### Building
 
-`bin/build.php` writes `dist/coinspay-crypto-payment-gateway-<version>.zip` without tests, development files and Composer. It needs the zip extension:
+`bin/build.php` writes `dist/coins-auto-pay-<version>.zip` without tests, development files and Composer. It needs the zip extension:
 
 ```bash
 docker run --rm -v "$P:/app" -w /app --entrypoint php composer:2 bin/build.php
 ```
 
 ## Changelog
+
+### 0.3.0
+
+- Renamed to Coins Auto Pay – Crypto Payment Gateway for WooCommerce for the WordPress.org directory: the plugin folder is now `coins-auto-pay`. The plugin still works with the CoinsPay service. Updating from 0.1.0 or 0.2.x: install and activate this version, deactivate the old plugin and remove its folder (`wp-content/plugins/coinspay-crypto-payment-gateway` or `coinspay-for-woocommerce`) by hand. Delete in WordPress would also remove the settings. The settings and the orders stay.
 
 ### 0.2.1
 

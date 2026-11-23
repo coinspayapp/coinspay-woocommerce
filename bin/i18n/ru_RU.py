@@ -1,9 +1,9 @@
 # Russian translation of the plugin: msgid -> msgstr. bin/i18n/build-po.py
-# turns it into languages/coinspay-crypto-payment-gateway-ru_RU.po from the .pot.
+# turns it into languages/coins-auto-pay-ru_RU.po from the .pot.
 RU = {
-    "CoinsPay Crypto Payment Gateway for WooCommerce": "Платёжный шлюз криптовалют CoinsPay для WooCommerce",
-    "Accept cryptocurrency in WooCommerce with CoinsPay: the buyer picks a coin and a network on the CoinsPay payment page, and the order is marked paid on its own.":
-        "Приём криптовалюты в WooCommerce через CoinsPay: покупатель выбирает монету и сеть на странице оплаты CoinsPay, а заказ сам отмечается оплаченным.",
+    "Coins Auto Pay – Crypto Payment Gateway for WooCommerce": "Coins Auto Pay – платёжный шлюз криптовалют для WooCommerce",
+    "Accept cryptocurrency in WooCommerce through the CoinsPay service: the buyer picks a coin and a network on the CoinsPay payment page, and the order is marked paid on its own.":
+        "Приём криптовалюты в WooCommerce через сервис CoinsPay: покупатель выбирает монету и сеть на странице оплаты CoinsPay, а заказ сам отмечается оплаченным.",
     "CoinsPay": "CoinsPay",
     "Checking…": "Проверяем…",
     "The check failed: the site did not answer.": "Проверка не удалась: сайт не ответил.",
@@ -143,7 +143,7 @@ RU = {
     "The crypto payment could not be started. Please try again or choose another payment method.":
         "Не удалось начать оплату криптовалютой. Попробуйте ещё раз или выберите другой способ оплаты.",
     "Settings": "Настройки",
-    "CoinsPay Crypto Payment Gateway for WooCommerce needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.":
-        "Для платёжного шлюза CoinsPay нужен WooCommerce %s или новее. Установите или обновите WooCommerce, чтобы принимать криптовалюту.",
+    "Coins Auto Pay needs WooCommerce %s or newer. Install or update WooCommerce to accept crypto payments.":
+        "Для Coins Auto Pay нужен WooCommerce %s или новее. Установите или обновите WooCommerce, чтобы принимать криптовалюту.",
     "Every 15 minutes (CoinsPay)": "Каждые 15 минут (CoinsPay)",
 }

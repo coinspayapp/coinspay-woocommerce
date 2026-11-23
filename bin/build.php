@@ -1,6 +1,6 @@
 <?php
 /**
- * Builds dist/coinspay-crypto-payment-gateway-<version>.zip: the plugin as merchants
+ * Builds dist/coins-auto-pay-<version>.zip: the plugin as merchants
  * install it, without tests, dev files and Composer packages.
  *
  *   php bin/build.php
@@ -9,7 +9,7 @@
  */
 
 $root = dirname( __DIR__ );
-$slug = 'coinspay-crypto-payment-gateway';
+$slug = 'coins-auto-pay';
 $main = file_get_contents( $root . '/' . $slug . '.php' );
 if ( ! preg_match( '/^\s*\*\s*Version:\s*(\S+)/m', $main, $match ) ) {
 	fwrite( STDERR, "No Version header in the main file\n" );

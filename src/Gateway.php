@@ -24,8 +24,8 @@ class Gateway extends \WC_Payment_Gateway {
 		$this->id                 = Plugin::GATEWAY_ID;
 		$this->has_fields         = false;
 		$this->supports           = array( 'products' );
-		$this->method_title       = __( 'CoinsPay', 'coinspay-crypto-payment-gateway' );
-		$this->method_description = __( 'Crypto payments with CoinsPay. The buyer picks a coin and a network on the CoinsPay payment page; the order is marked paid on its own.', 'coinspay-crypto-payment-gateway' );
+		$this->method_title       = __( 'CoinsPay', 'coins-auto-pay' );
+		$this->method_description = __( 'Crypto payments with CoinsPay. The buyer picks a coin and a network on the CoinsPay payment page; the order is marked paid on its own.', 'coins-auto-pay' );
 
 		$this->init_form_fields();
 		$this->init_settings();
@@ -42,68 +42,68 @@ class Gateway extends \WC_Payment_Gateway {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled'            => array(
-				'title'   => __( 'Enable', 'coinspay-crypto-payment-gateway' ),
+				'title'   => __( 'Enable', 'coins-auto-pay' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Accept crypto payments with CoinsPay', 'coinspay-crypto-payment-gateway' ),
+				'label'   => __( 'Accept crypto payments with CoinsPay', 'coins-auto-pay' ),
 				'default' => 'no',
 			),
 			'title'              => array(
-				'title'       => __( 'Title', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Title', 'coins-auto-pay' ),
 				'type'        => 'text',
-				'description' => __( 'The payment method name the buyer sees at checkout.', 'coinspay-crypto-payment-gateway' ),
-				'default'     => __( 'Cryptocurrency', 'coinspay-crypto-payment-gateway' ),
+				'description' => __( 'The payment method name the buyer sees at checkout.', 'coins-auto-pay' ),
+				'default'     => __( 'Cryptocurrency', 'coins-auto-pay' ),
 				'desc_tip'    => true,
 			),
 			'description'        => array(
-				'title'       => __( 'Description', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Description', 'coins-auto-pay' ),
 				'type'        => 'textarea',
-				'description' => __( 'Shown under the payment method at checkout.', 'coinspay-crypto-payment-gateway' ),
-				'default'     => __( 'Pay with USDT, BTC, ETH and other coins. You will choose the coin and the network on the next page.', 'coinspay-crypto-payment-gateway' ),
+				'description' => __( 'Shown under the payment method at checkout.', 'coins-auto-pay' ),
+				'default'     => __( 'Pay with USDT, BTC, ETH and other coins. You will choose the coin and the network on the next page.', 'coins-auto-pay' ),
 				'desc_tip'    => true,
 			),
 			'connection'         => array(
-				'title'       => __( 'Connection', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Connection', 'coins-auto-pay' ),
 				'type'        => 'title',
-				'description' => __( 'In the CoinsPay dashboard open your shop: issue an API key under "API keys", then under "Webhook" enter the address below and copy the secret.', 'coinspay-crypto-payment-gateway' ),
+				'description' => __( 'In the CoinsPay dashboard open your shop: issue an API key under "API keys", then under "Webhook" enter the address below and copy the secret.', 'coins-auto-pay' ),
 			),
 			'api_url'            => array(
-				'title'       => __( 'API address', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'API address', 'coins-auto-pay' ),
 				'type'        => 'text',
-				'description' => __( 'Leave empty to use https://coinspay.app/api/v1. Change it only if CoinsPay gives you another address.', 'coinspay-crypto-payment-gateway' ),
+				'description' => __( 'Leave empty to use https://coinspay.app/api/v1. Change it only if CoinsPay gives you another address.', 'coins-auto-pay' ),
 				'default'     => '',
 				'placeholder' => 'https://coinspay.app/api/v1',
 			),
 			'api_key'            => array(
-				'title'       => __( 'API key', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'API key', 'coins-auto-pay' ),
 				'type'        => 'password',
-				'description' => __( 'cpk_… for real payments, cpk_test_… for test mode: test invoices are paid with a button on the payment page, without coins.', 'coinspay-crypto-payment-gateway' ),
+				'description' => __( 'cpk_… for real payments, cpk_test_… for test mode: test invoices are paid with a button on the payment page, without coins.', 'coins-auto-pay' ),
 				'default'     => '',
 			),
 			'webhook_url'        => array(
-				'title' => __( 'Webhook address', 'coinspay-crypto-payment-gateway' ),
+				'title' => __( 'Webhook address', 'coins-auto-pay' ),
 				'type'  => 'coinspay_webhook',
 			),
 			'webhook_secret'     => array(
-				'title'       => __( 'Webhook secret', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Webhook secret', 'coins-auto-pay' ),
 				'type'        => 'password',
-				'description' => __( 'The whsec_… secret the dashboard shows when you save the webhook.', 'coinspay-crypto-payment-gateway' ),
+				'description' => __( 'The whsec_… secret the dashboard shows when you save the webhook.', 'coins-auto-pay' ),
 				'default'     => '',
 			),
 			'connection_check'   => array(
-				'title' => __( 'Check', 'coinspay-crypto-payment-gateway' ),
+				'title' => __( 'Check', 'coins-auto-pay' ),
 				'type'  => 'coinspay_check',
 			),
 			'invoice'            => array(
-				'title' => __( 'Invoice', 'coinspay-crypto-payment-gateway' ),
+				'title' => __( 'Invoice', 'coins-auto-pay' ),
 				'type'  => 'title',
 			),
 			'lifetime'           => array(
-				'title'             => __( 'Time to pay, minutes', 'coinspay-crypto-payment-gateway' ),
+				'title'             => __( 'Time to pay, minutes', 'coins-auto-pay' ),
 				'type'              => 'number',
 				'default'           => (string) Settings::DEFAULT_LIFETIME,
 				'description'       => sprintf(
 					/* translators: 1: minimum minutes, 2: maximum minutes */
-					__( 'From %1$d to %2$d minutes. The order stays pending meanwhile and is not cancelled by the "Hold stock" setting of WooCommerce.', 'coinspay-crypto-payment-gateway' ),
+					__( 'From %1$d to %2$d minutes. The order stays pending meanwhile and is not cancelled by the "Hold stock" setting of WooCommerce.', 'coins-auto-pay' ),
 					Settings::MIN_LIFETIME,
 					Settings::MAX_LIFETIME
 				),
@@ -114,52 +114,52 @@ class Gateway extends \WC_Payment_Gateway {
 				),
 			),
 			'cancel_on_expiry'   => array(
-				'title'   => __( 'Expired invoice', 'coinspay-crypto-payment-gateway' ),
+				'title'   => __( 'Expired invoice', 'coins-auto-pay' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Cancel the order when its invoice expires unpaid', 'coinspay-crypto-payment-gateway' ),
+				'label'   => __( 'Cancel the order when its invoice expires unpaid', 'coins-auto-pay' ),
 				'default' => 'yes',
 			),
 			'auto_return'        => array(
-				'title'       => __( 'Return to the shop', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Return to the shop', 'coins-auto-pay' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Take the buyer back to the shop automatically after payment', 'coinspay-crypto-payment-gateway' ),
-				'description' => __( 'Five seconds after the payment page shows "Paid". Otherwise the buyer comes back with the "Back to the shop" button.', 'coinspay-crypto-payment-gateway' ),
+				'label'       => __( 'Take the buyer back to the shop automatically after payment', 'coins-auto-pay' ),
+				'description' => __( 'Five seconds after the payment page shows "Paid". Otherwise the buyer comes back with the "Back to the shop" button.', 'coins-auto-pay' ),
 				'default'     => 'yes',
 			),
 			'stablecoins_only'   => array(
-				'title'   => __( 'Coins', 'coinspay-crypto-payment-gateway' ),
+				'title'   => __( 'Coins', 'coins-auto-pay' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Accept stablecoins only (USDT and USDC)', 'coinspay-crypto-payment-gateway' ),
+				'label'   => __( 'Accept stablecoins only (USDT and USDC)', 'coins-auto-pay' ),
 				'default' => 'no',
 			),
 			'buyer_pays_fee'     => array(
-				'title'       => __( 'Fees', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Fees', 'coins-auto-pay' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'The buyer pays the CoinsPay fee', 'coinspay-crypto-payment-gateway' ),
-				'description' => __( 'Added to the amount in coins on the payment page; the order total stays the same.', 'coinspay-crypto-payment-gateway' ),
+				'label'       => __( 'The buyer pays the CoinsPay fee', 'coins-auto-pay' ),
+				'description' => __( 'Added to the amount in coins on the payment page; the order total stays the same.', 'coins-auto-pay' ),
 				'default'     => 'no',
 			),
 			'buyer_pays_network' => array(
 				'type'    => 'checkbox',
-				'label'   => __( 'The buyer pays the network fee of your payout', 'coinspay-crypto-payment-gateway' ),
+				'label'   => __( 'The buyer pays the network fee of your payout', 'coins-auto-pay' ),
 				'default' => 'no',
 			),
 			'advanced'           => array(
-				'title' => __( 'Advanced', 'coinspay-crypto-payment-gateway' ),
+				'title' => __( 'Advanced', 'coins-auto-pay' ),
 				'type'  => 'title',
 			),
 			'test_admin_only'    => array(
-				'title'       => __( 'Test mode', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Test mode', 'coins-auto-pay' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'With a test key, show the payment method to shop managers only', 'coinspay-crypto-payment-gateway' ),
-				'description' => __( 'A test payment completes only orders placed by a shop manager; other orders paid this way stay on hold.', 'coinspay-crypto-payment-gateway' ),
+				'label'       => __( 'With a test key, show the payment method to shop managers only', 'coins-auto-pay' ),
+				'description' => __( 'A test payment completes only orders placed by a shop manager; other orders paid this way stay on hold.', 'coins-auto-pay' ),
 				'default'     => 'yes',
 			),
 			'debug'              => array(
-				'title'       => __( 'Debug log', 'coinspay-crypto-payment-gateway' ),
+				'title'       => __( 'Debug log', 'coins-auto-pay' ),
 				'type'        => 'checkbox',
-				'label'       => __( 'Log what the plugin does', 'coinspay-crypto-payment-gateway' ),
-				'description' => __( 'WooCommerce → Status → Logs, source "coinspay". Errors are logged always; keys and secrets never.', 'coinspay-crypto-payment-gateway' ),
+				'label'       => __( 'Log what the plugin does', 'coins-auto-pay' ),
+				'description' => __( 'WooCommerce → Status → Logs, source "coinspay". Errors are logged always; keys and secrets never.', 'coins-auto-pay' ),
 				'default'     => 'no',
 			),
 		);
@@ -224,7 +224,7 @@ class Gateway extends \WC_Payment_Gateway {
 	public function validate_api_url_field( $key, $value ) {
 		$value = untrailingslashit( trim( (string) $value ) );
 		if ( '' !== $value && ! preg_match( '#^https?://#i', $value ) ) {
-			\WC_Admin_Settings::add_error( __( 'The API address must start with https:// (or http:// for a local test).', 'coinspay-crypto-payment-gateway' ) );
+			\WC_Admin_Settings::add_error( __( 'The API address must start with https:// (or http:// for a local test).', 'coins-auto-pay' ) );
 			return $this->get_option( 'api_url' );
 		}
 		Currencies::flush();
@@ -241,7 +241,7 @@ class Gateway extends \WC_Payment_Gateway {
 	public function validate_api_key_field( $key, $value ) {
 		$value = trim( (string) $value );
 		if ( '' !== $value && ! preg_match( '/^cpk_(test_)?[A-Za-z0-9]{40}$/', $value ) ) {
-			\WC_Admin_Settings::add_error( __( 'This does not look like a CoinsPay API key: it starts with cpk_ or cpk_test_.', 'coinspay-crypto-payment-gateway' ) );
+			\WC_Admin_Settings::add_error( __( 'This does not look like a CoinsPay API key: it starts with cpk_ or cpk_test_.', 'coins-auto-pay' ) );
 			return $this->get_option( 'api_key' );
 		}
 		Currencies::flush();
@@ -258,7 +258,7 @@ class Gateway extends \WC_Payment_Gateway {
 	public function validate_webhook_secret_field( $key, $value ) {
 		$value = trim( (string) $value );
 		if ( '' !== $value && 0 !== strpos( $value, 'whsec_' ) ) {
-			\WC_Admin_Settings::add_error( __( 'The webhook secret starts with whsec_.', 'coinspay-crypto-payment-gateway' ) );
+			\WC_Admin_Settings::add_error( __( 'The webhook secret starts with whsec_.', 'coins-auto-pay' ) );
 			return $this->get_option( 'webhook_secret' );
 		}
 		return $value;
@@ -287,10 +287,10 @@ class Gateway extends \WC_Payment_Gateway {
 		$hint = $last
 			? sprintf(
 				/* translators: %s: date and time */
-				__( 'Last test event from the dashboard: %s.', 'coinspay-crypto-payment-gateway' ),
+				__( 'Last test event from the dashboard: %s.', 'coins-auto-pay' ),
 				date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $last + (int) ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) )
 			)
-			: __( 'Enter this address in the dashboard, then press "Send test event" there: the time it arrived will show here.', 'coinspay-crypto-payment-gateway' );
+			: __( 'Enter this address in the dashboard, then press "Send test event" there: the time it arrived will show here.', 'coins-auto-pay' );
 
 		ob_start();
 		?>
@@ -298,7 +298,7 @@ class Gateway extends \WC_Payment_Gateway {
 			<th scope="row" class="titledesc"><?php echo esc_html( $data['title'] ); ?></th>
 			<td class="forminp">
 				<input type="text" class="regular-input" id="coinspay-webhook-url" readonly value="<?php echo esc_attr( Webhook::url() ); ?>" />
-				<button type="button" class="button" data-coinspay-copy="coinspay-webhook-url"><?php esc_html_e( 'Copy', 'coinspay-crypto-payment-gateway' ); ?></button>
+				<button type="button" class="button" data-coinspay-copy="coinspay-webhook-url"><?php esc_html_e( 'Copy', 'coins-auto-pay' ); ?></button>
 				<p class="description"><?php echo esc_html( $hint ); ?></p>
 			</td>
 		</tr>
@@ -319,8 +319,8 @@ class Gateway extends \WC_Payment_Gateway {
 		<tr valign="top">
 			<th scope="row" class="titledesc"><?php echo esc_html( $data['title'] ); ?></th>
 			<td class="forminp">
-				<button type="button" class="button" id="coinspay-check"><?php esc_html_e( 'Check connection', 'coinspay-crypto-payment-gateway' ); ?></button>
-				<p class="description" id="coinspay-check-result" aria-live="polite"><?php esc_html_e( 'Uses the address and key entered above, saved or not.', 'coinspay-crypto-payment-gateway' ); ?></p>
+				<button type="button" class="button" id="coinspay-check"><?php esc_html_e( 'Check connection', 'coins-auto-pay' ); ?></button>
+				<p class="description" id="coinspay-check-result" aria-live="polite"><?php esc_html_e( 'Uses the address and key entered above, saved or not.', 'coins-auto-pay' ); ?></p>
 			</td>
 		</tr>
 		<?php
@@ -356,7 +356,7 @@ class Gateway extends \WC_Payment_Gateway {
 		if ( Settings::is_test_mode() ) {
 			printf(
 				'<div class="notice notice-warning inline"><p>%s</p></div>',
-				esc_html__( 'Test mode: the key is a test one (cpk_test_). Invoices are paid with a button on the payment page, no coins move. Orders paid this way are marked "[Test]" in their notes.', 'coinspay-crypto-payment-gateway' )
+				esc_html__( 'Test mode: the key is a test one (cpk_test_). Invoices are paid with a button on the payment page, no coins move. Orders paid this way are marked "[Test]" in their notes.', 'coins-auto-pay' )
 			);
 		}
 		parent::admin_options();

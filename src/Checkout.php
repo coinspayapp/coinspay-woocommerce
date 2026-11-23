@@ -141,15 +141,15 @@ final class Checkout {
 		$pending = ! empty( $invoice['amount_pending'] ) && preg_match( '/[1-9]/', (string) $invoice['amount_pending'] );
 
 		if ( 'open' === $status && $pending && ! preg_match( '/[1-9]/', (string) $invoice['amount_due'] ) ) {
-			$message = __( 'Your payment has arrived and is waiting for network confirmations. The order will update on its own.', 'coinspay-crypto-payment-gateway' );
+			$message = __( 'Your payment has arrived and is waiting for network confirmations. The order will update on its own.', 'coins-auto-pay' );
 		} elseif ( 'open' === $status && ( $paid || $pending ) ) {
-			$message = __( 'The order is partially paid. Pay the rest on the payment page.', 'coinspay-crypto-payment-gateway' );
+			$message = __( 'The order is partially paid. Pay the rest on the payment page.', 'coins-auto-pay' );
 			$link    = (string) $invoice['pay_url'];
 		} elseif ( 'open' === $status ) {
-			$message = __( 'The order is waiting for payment.', 'coinspay-crypto-payment-gateway' );
+			$message = __( 'The order is waiting for payment.', 'coins-auto-pay' );
 			$link    = (string) $invoice['pay_url'];
 		} elseif ( in_array( $status, array( 'expired', 'cancelled' ), true ) && ! $paid ) {
-			$message = __( 'The time to pay for this order has run out. Please place the order again.', 'coinspay-crypto-payment-gateway' );
+			$message = __( 'The time to pay for this order has run out. Please place the order again.', 'coins-auto-pay' );
 		}
 		if ( '' === $message ) {
 			return;
@@ -160,7 +160,7 @@ final class Checkout {
 			printf(
 				' <a class="button" href="%s">%s</a>',
 				esc_url( add_query_arg( 'lang', Compat::pay_page_language(), $link ) ),
-				esc_html__( 'Go to the payment page', 'coinspay-crypto-payment-gateway' )
+				esc_html__( 'Go to the payment page', 'coins-auto-pay' )
 			);
 		}
 		echo '</p>';
