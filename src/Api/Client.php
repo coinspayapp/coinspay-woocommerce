@@ -21,9 +21,10 @@ final class Client {
 	const TIMEOUT = 15;
 
 	/**
-	 * Invoice ids are UUIDs; anything else never reaches the URL.
+	 * Invoice ids are UUIDs; anything else never reaches the URL. D: $ is the very end, not a
+	 * line break before it.
 	 */
-	const UUID = '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i';
+	const UUID = '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/iD';
 
 	/**
 	 * API base without the trailing slash.

@@ -44,7 +44,8 @@ final class Log {
 	 */
 	private static function write( $level, $message ) {
 		if ( function_exists( 'wc_get_logger' ) ) {
-			wc_get_logger()->log( $level, (string) $message, array( 'source' => 'coinspay' ) );
+			// Lines carry what came from outside (invoice ids, API answers): one plain-text line each.
+			wc_get_logger()->log( $level, sanitize_text_field( (string) $message ), array( 'source' => 'coinspay' ) );
 		}
 	}
 }

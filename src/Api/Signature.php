@@ -46,7 +46,7 @@ final class Signature {
 			$parts[ trim( substr( $piece, 0, $eq ) ) ] = trim( substr( $piece, $eq + 1 ) );
 		}
 
-		if ( ! isset( $parts['t'], $parts['v1'] ) || ! preg_match( '/^\d{1,12}$/', $parts['t'] ) || ! preg_match( '/^[0-9a-f]{64}$/', $parts['v1'] ) ) {
+		if ( ! isset( $parts['t'], $parts['v1'] ) || ! preg_match( '/^\d{1,12}$/D', $parts['t'] ) || ! preg_match( '/^[0-9a-f]{64}$/D', $parts['v1'] ) ) {
 			return false;
 		}
 

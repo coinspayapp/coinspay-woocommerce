@@ -179,6 +179,6 @@ final class InvoiceRequest {
 		}
 		parse_str( $query, $args );
 		// Usually wc_order_…, but the key can be filtered (woocommerce_generate_order_key).
-		return isset( $args['key'] ) && is_string( $args['key'] ) && preg_match( '/^[A-Za-z0-9_-]{6,64}$/', $args['key'] ) ? $args['key'] : '';
+		return isset( $args['key'] ) && is_string( $args['key'] ) && preg_match( '/^[A-Za-z0-9_-]{6,64}$/D', $args['key'] ) ? $args['key'] : '';
 	}
 }

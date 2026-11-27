@@ -8,6 +8,7 @@
 namespace CoinsPay\WooCommerce;
 
 use CoinsPay\WooCommerce\Api\ApiError;
+use CoinsPay\WooCommerce\Api\Client;
 use CoinsPay\WooCommerce\Api\Signature;
 
 defined( 'ABSPATH' ) || exit;
@@ -48,7 +49,10 @@ final class Webhook {
 	 * Handles one delivery and ends the request.
 	 */
 	public static function handle() {
-		// The signature is over the raw bytes; php://input is the only place they are.
+		// The signature is over the raw bytes; php://input is the only place they are. The body
+		// stays as it came, since any change breaks the signature. Nothing of it is used before
+		// the signature is verified, and after that only fields checked by event_type() and
+		// invoice_id().
 		$body   = (string) file_get_contents( 'php://input' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$header = isset( $_SERVER['HTTP_X_CPAY_SIGNATURE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_CPAY_SIGNATURE'] ) ) : '';
 
@@ -62,11 +66,11 @@ final class Webhook {
 		}
 
 		$event = json_decode( $body, true );
-		if ( ! is_array( $event ) || empty( $event['type'] ) ) {
+		$type  = is_array( $event ) ? self::event_type( $event ) : '';
+		if ( '' === $type ) {
 			self::respond( 400, 'not an event' );
 		}
 
-		$type = (string) $event['type'];
 		if ( 'webhook.test' === $type ) {
 			update_option( self::LAST_TEST_OPTION, time(), false );
 			self::respond( 200, 'test event received' );
@@ -138,20 +142,34 @@ final class Webhook {
 	}
 
 	/**
+	 * Type of an event, such as invoice.paid: lowercase letters, digits, dots and underscores.
+	 *
+	 * @param array $event Event.
+	 * @return string The type, or '' when the event has none or it has another shape.
+	 */
+	public static function event_type( array $event ) {
+		if ( ! isset( $event['type'] ) || ! is_string( $event['type'] ) ) {
+			return '';
+		}
+		$type = sanitize_text_field( $event['type'] );
+		return preg_match( '/^[a-z0-9_.]{1,64}$/D', $type ) ? $type : '';
+	}
+
+	/**
 	 * Invoice id an event is about.
 	 *
 	 * @param array $event Event.
-	 * @return string
+	 * @return string Lowercase UUID, or '' when the event names no invoice or not a UUID.
 	 */
 	public static function invoice_id( array $event ) {
 		$data = isset( $event['data'] ) && is_array( $event['data'] ) ? $event['data'] : array();
+		$id   = '';
 		if ( isset( $data['invoice']['id'] ) && is_string( $data['invoice']['id'] ) ) {
-			return $data['invoice']['id'];
+			$id = $data['invoice']['id'];
+		} elseif ( isset( $data['deposit']['invoice_id'] ) && is_string( $data['deposit']['invoice_id'] ) ) {
+			$id = $data['deposit']['invoice_id'];
 		}
-		if ( isset( $data['deposit']['invoice_id'] ) && is_string( $data['deposit']['invoice_id'] ) ) {
-			return $data['deposit']['invoice_id'];
-		}
-		return '';
+		return preg_match( Client::UUID, $id ) ? strtolower( $id ) : '';
 	}
 
 	/**

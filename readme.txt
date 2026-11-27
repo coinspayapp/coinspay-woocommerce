@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 7.0
 WC requires at least: 3.0
 WC tested up to: 11.3
-Stable tag: 0.3.0
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Use a separate CoinsPay shop for staging: a shop has one webhook, and its events
 5. The plugin settings with the connection check.
 
 == Changelog ==
+
+= 0.3.1 =
+* The webhook receiver takes only an event type of the CoinsPay format and an invoice id that is a UUID; any other event is refused before it reaches the API or the log. Log lines are written as plain text.
 
 = 0.3.0 =
 * The plugin is renamed to Coins Auto Pay – Crypto Payment Gateway for WooCommerce, folder coins-auto-pay. It still works with the CoinsPay service, and its settings stay.

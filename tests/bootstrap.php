@@ -20,6 +20,11 @@ function wp_strip_all_tags( $text ) {
 	return trim( strip_tags( (string) $text ) );
 }
 
+// The part of the WordPress function the tests rely on: tags and line breaks go.
+function sanitize_text_field( $text ) {
+	return trim( preg_replace( '/\s+/', ' ', strip_tags( (string) $text ) ) );
+}
+
 function wp_json_encode( $data ) {
 	return json_encode( $data );
 }

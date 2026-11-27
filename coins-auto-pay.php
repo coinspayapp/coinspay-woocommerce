@@ -2,7 +2,7 @@
 /**
  * Plugin Name:          Coins Auto Pay – Crypto Payment Gateway for WooCommerce
  * Description:          Accept cryptocurrency in WooCommerce through the CoinsPay service: the buyer picks a coin and a network on the CoinsPay payment page, and the order is marked paid on its own.
- * Version:              0.3.0
+ * Version:              0.3.1
  * Requires at least:    4.7
  * Requires PHP:         7.0
  * Requires Plugins:     woocommerce
@@ -24,7 +24,7 @@ if ( defined( 'COINSPAY_WC_VERSION' ) ) {
 	return;
 }
 
-define( 'COINSPAY_WC_VERSION', '0.3.0' );
+define( 'COINSPAY_WC_VERSION', '0.3.1' );
 define( 'COINSPAY_WC_FILE', __FILE__ );
 define( 'COINSPAY_WC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'COINSPAY_WC_MIN_WC', '3.0' );

@@ -240,7 +240,7 @@ class Gateway extends \WC_Payment_Gateway {
 	 */
 	public function validate_api_key_field( $key, $value ) {
 		$value = trim( (string) $value );
-		if ( '' !== $value && ! preg_match( '/^cpk_(test_)?[A-Za-z0-9]{40}$/', $value ) ) {
+		if ( '' !== $value && ! preg_match( '/^cpk_(test_)?[A-Za-z0-9]{40}$/D', $value ) ) {
 			\WC_Admin_Settings::add_error( __( 'This does not look like a CoinsPay API key: it starts with cpk_ or cpk_test_.', 'coins-auto-pay' ) );
 			return $this->get_option( 'api_key' );
 		}

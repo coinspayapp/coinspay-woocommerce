@@ -118,6 +118,10 @@ docker run --rm -v "$P:/app" -w /app --entrypoint php composer:2 bin/build.php
 
 ## Changelog
 
+### 0.3.1
+
+- The webhook receiver takes only an event type of the CoinsPay format (`invoice.paid`) and an invoice id that is a UUID; any other event is refused with HTTP 400 or ignored before it reaches the API or the log. Log lines are written as plain text.
+
 ### 0.3.0
 
 - Renamed to Coins Auto Pay – Crypto Payment Gateway for WooCommerce for the WordPress.org directory: the plugin folder is now `coins-auto-pay`. The plugin still works with the CoinsPay service. Updating from 0.1.0 or 0.2.x: install and activate this version, deactivate the old plugin and remove its folder (`wp-content/plugins/coinspay-crypto-payment-gateway` or `coinspay-for-woocommerce`) by hand. Delete in WordPress would also remove the settings. The settings and the orders stay.
